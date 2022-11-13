@@ -1,0 +1,21 @@
+"------------------------------------------------------------------------ Rails:
+nnoremap <leader><leader>ct :Econtroller
+nnoremap <leader><leader>en :Eenvironment<CR>
+nnoremap <leader><leader>fx :Efixtures<CR>
+nnoremap <leader><leader>tf :Efunctionaltest<CR>
+nnoremap <leader><leader>he :Ehelper<CR>
+nnoremap <leader><leader>in :Einitializer<CR>
+nnoremap <leader><leader>ti :Eintegrationtest<CR>
+nnoremap <leader><leader>js :Ejavascript<CR>
+nnoremap <leader><leader>la :Elayout<CR>
+nnoremap <leader><leader>li :Elib<CR>
+nnoremap <leader><leader>lo :Elocale<CR>
+nnoremap <leader><leader>ma :Emailer<CR>
+nnoremap <leader><leader>mi :Emigration<CR>
+nnoremap <leader><leader>mo :Emodel 
+nnoremap <leader><leader>sc :Eschema<CR>
+nnoremap <leader><leader>sp :Espec<CR>
+nnoremap <leader><leader>st :Estylesheet<CR>
+nnoremap <leader><leader>ta :Etask<CR>
+nnoremap <leader><leader>tu :Eunittest<CR>
+nnoremap <leader><leader>vi :Eview 
