@@ -1,0 +1,17 @@
+# Enable dark theme by default
+set recolor true
+
+# Disable original hue when recoloring
+set recolor-keephue false
+
+# Image colors should be kept while recoloring
+set recolor-reverse-video true
+
+# Set the dark color foreground value 
+set recolor-darkcolor "#008000"
+
+set statusbar-h-padding 0
+set statusbar-v-padding 0
+
+set window-height 1080
+set window-width 1920
