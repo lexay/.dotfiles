@@ -38,4 +38,4 @@ alias tmn="tmuxinator new "
 alias tms="tmuxinator_fzf_start "
 
 # Bare repos
-alias gitdot='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+# alias gitdot='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
