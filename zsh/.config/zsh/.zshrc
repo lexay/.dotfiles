@@ -73,3 +73,4 @@ gpgconf --launch gpg-agent
 # RBENV initialization
 export PATH="${XDG_DATA_HOME:-$HOME/.local/share}/rbenv/bin:$PATH"
 eval "$(rbenv init - zsh)"
+# eval "$(starship init zsh)"
