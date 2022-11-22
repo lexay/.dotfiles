@@ -4,5 +4,6 @@
   // "solargraph.formatting": true,
   "solargraph.diagnostics": true,
   "solargraph.transport": "stdio",
-  "emmet.includeLanguages": { "eruby": "html" }
+  "emmet.includeLanguages": { "eruby": "html" },
+  "suggest.noselect": true,
 } 
