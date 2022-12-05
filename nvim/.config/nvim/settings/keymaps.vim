@@ -138,4 +138,6 @@ nnoremap <leader>su :%s///<left><left>
 vnoremap <leader>su :s///<left><left>
 
 " --------------------------------------------------------------------- Testing:
-
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+nnoremap <silent><leader>n :!tmux new-window tmux_sessionizer<CR>

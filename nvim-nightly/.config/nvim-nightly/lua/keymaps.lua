@@ -90,6 +90,7 @@ keymap('n', '<leader>ff', ':Telescope find_files<cr>')
 keymap('n', '<leader>fg', ':Telescope live_grep<cr>')
 keymap('n', '<leader>fb', ':Telescope buffers<cr>')
 keymap('n', '<leader>fh', ':Telescope help_tags<cr>')
+keymap('n', '<C-n>', '<cmd>silent !tmux new-window tmux_sessionizer<CR>')
 
 -- ====================================================================CMP
 -- keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})

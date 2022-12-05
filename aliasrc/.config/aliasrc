@@ -35,7 +35,8 @@ alias bks="mdbook serve -o"
 # Tmux/tmuxinator
 alias tmux="tmux -f ${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf"
 alias tmn="tmuxinator new "
-alias tms="tmuxinator_fzf_start "
+alias tmx="tmuxinator_fzf_start "
+alias tms="tmux_sessionizer"
 
 # Bare repos
 # alias gitdot='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'

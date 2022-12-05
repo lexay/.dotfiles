@@ -74,3 +74,10 @@ gpgconf --launch gpg-agent
 export PATH="${XDG_DATA_HOME:-$HOME/.local/share}/rbenv/bin:$PATH"
 eval "$(rbenv init - zsh)"
 # eval "$(starship init zsh)"
+#
+bindkey -s "^n" "tmux_sessionizer\n"
+openclose() {
+  "$@" &
+  disown
+  exit
+}
