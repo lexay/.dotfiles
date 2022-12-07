@@ -34,10 +34,11 @@ alias bks="mdbook serve -o"
 
 # Tmux/tmuxinator
 alias tmux="tmux -f ${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf"
-alias tmn="tmuxinator new "
-alias tmx="tmuxinator_fzf_start "
-alias tms="tmux_sessionizer"
+alias tfs="tmuxinator_fzf_start "
+alias session="tmux_sessionizer"
 
-# Bare repos
-# alias gitdot='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+# LF in 2 tmux panes
 alias lflf="tmux neww -n 'commander' lf \; splitw -h lf \; selectp -L"
+
+# LESS
+alias less="less --use-color -Dsm"
