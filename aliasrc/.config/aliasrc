@@ -8,6 +8,7 @@ alias sudo="sudo "
 # LS
 alias ls="ls --color=auto --group-directories-first"
 alias ll="ls -alF"
+alias ld="ls -ald"
 alias la="ls -A"
 alias l="ls -CF"
 
@@ -42,3 +43,6 @@ alias lflf="tmux neww -n 'commander' lf \; splitw -h lf \; selectp -L"
 
 # LESS
 alias less="less --use-color -Dsm"
+
+# Info
+alias info="info --vi-keys"
