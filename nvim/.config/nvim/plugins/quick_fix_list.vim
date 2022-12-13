@@ -11,6 +11,6 @@ function! ToggleQuickfixList()
   endif
 endfunction
 
-nnoremap <leader>q :call ToggleQuickfixList()<CR>
+nnoremap <leader>/ :call ToggleQuickfixList()<CR>
 nnoremap <leader>. :cnext<CR>
 nnoremap <leader>, :cprev<CR>

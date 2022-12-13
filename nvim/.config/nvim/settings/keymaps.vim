@@ -104,8 +104,8 @@ nnoremap <leader>P "+P
 
 " Close windows quicklier.
 nnoremap <leader>s :x<CR>
-nnoremap <leader>x :q!<CR>
-nnoremap <leader>X :qa<CR>
+nnoremap <leader>q :q!<CR>
+nnoremap <leader>Q :qa<CR>
 
 " Yank to EOL
 nnoremap Y y$
