@@ -6,7 +6,7 @@
 if [[ $# -eq 1 ]]; then
   selected=$1
 else
-  selected=$(find ~/Documents/Projects ~/Documents/Projects/Ruby/practice -mindepth 1 -maxdepth 1 -type d | fzf)
+  selected=$(find $PROJECTS $RUBY_HOME/practice -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
 
 if [[ -z $selected ]]; then
