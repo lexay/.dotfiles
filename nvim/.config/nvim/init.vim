@@ -110,7 +110,7 @@
    Plug 'tpope/vim-dispatch'
 
    " End methods automatically in Ruby
-   Plug 'tpope/vim-endwise', { 'for': 'ruby' }
+   Plug 'tpope/vim-endwise'
 
    " Rename, move, make files and dirs
    Plug 'tpope/vim-eunuch'
