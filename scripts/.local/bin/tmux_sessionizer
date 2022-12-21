@@ -6,7 +6,24 @@
 if [[ $# -eq 1 ]]; then
   selected=$1
 else
-  selected=$(find $PROJECTS $RUBY_HOME/practice -mindepth 1 -maxdepth 1 -type d | fzf)
+  selected=$(find \
+    $LIBRARY_HOME \
+    $BASH_HOME \
+    $CRYSTAL_HOME \
+    $DB_HOME \
+    $FCC_HOME \
+    $GIT_HOME \
+    $JS_HOME \
+    $LUA_HOME \
+    $PY_HOME \
+    $RAILS_HOME \
+    $RUBY_HOME \
+    $RUST_HOME \
+    $SINATRA_HOME \
+    $TS_HOME \
+    $WEB_HOME \
+    $WIKI_HOME \
+    -mindepth 1 -maxdepth 1 -type d | fzf --height=100)
 fi
 
 if [[ -z $selected ]]; then

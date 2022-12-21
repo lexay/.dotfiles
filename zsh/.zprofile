@@ -18,8 +18,22 @@ export PATH="${XDG_DATA_HOME:-$HOME/.local/share}/fly/bin:$PATH"
 
 # Work directories
 export PROJECTS="$HOME/Documents/Projects"
+export LIBRARY_HOME="$HOME/Documents/Library"
+export BASH_HOME="$PROJECTS/Bash"
+export CRYSTAL_HOME="$PROJECTS/Crystal"
+export DB_HOME="$PROJECTS/Databases"
+export FCC_HOME="$PROJECTS/FreeCodeCamp"
+export GIT_HOME="$PROJECTS/Git"
+export JS_HOME="$PROJECTS/JS"
+export LUA_HOME="$PROJECTS/Lua"
+export PY_HOME="$PROJECTS/Python"
+export RAILS_HOME="$PROJECTS/Rails"
 export RUBY_HOME="$PROJECTS/Ruby"
 export RUST_HOME="$PROJECTS/Rust"
+export SINATRA_HOME="$PROJECTS/Sinatra"
+export TS_HOME="$PROJECTS/TypeScript"
+export WEB_HOME="$PROJECTS/Web"
+export WIKI_HOME="$PROJECTS/Wiki"
 
 # LESS
 export LESSHISTFILE="-"
