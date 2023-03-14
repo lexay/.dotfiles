@@ -56,6 +56,4 @@ o.completeopt = 'menuone,noselect'
 o.signcolumn = 'yes'
 
 o.termguicolors = true
-vim.g.gruvbox_invert_selection = 0
-vim.g.colors_name = 'gruvbox'
 o.background = 'dark'
