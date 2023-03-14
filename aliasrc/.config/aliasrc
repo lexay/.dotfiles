@@ -39,7 +39,7 @@ alias tfs="tmuxinator_fzf_start "
 alias session="tmux_sessionizer"
 
 # LF in 2 tmux panes
-alias lflf="tmux neww -n 'commander' lf \; splitw -h lf \; selectp -L"
+alias far="tmux neww -n 'far' vifm"
 
 # LESS
 alias less="less --use-color -Dsm"
