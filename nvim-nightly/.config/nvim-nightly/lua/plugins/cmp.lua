@@ -1,4 +1,13 @@
-local M = {}
+local M = {
+  'hrsh7th/nvim-cmp',
+}
+
+M.dependencies = {
+  'hrsh7th/cmp-buffer',
+  'hrsh7th/cmp-path',
+  'hrsh7th/cmp-cmdline',
+  'saadparwaiz1/cmp_luasnip',
+}
 
 M.config = function()
   local cmp = require("cmp")
@@ -43,8 +52,12 @@ M.config = function()
   cmp.setup {
     snippet = {
       expand = function(args)
-        luasnip.lsp_expand(args.body)
+        require('luasnip').lsp_expand(args.body)
       end,
+    },
+    window = {
+      completion = cmp.config.window.bordered(),
+      documentation = cmp.config.window.bordered()
     },
     mapping = {
       ["<C-h"] = cmp.mapping.select_prev_item(),
@@ -110,13 +123,6 @@ M.config = function()
     confirm_opts = {
       behavior = cmp.ConfirmBehavior.Replace,
       select = false,
-    },
-    documentation = {
-      border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-    },
-    experimental = {
-      ghost_text = true,
-      native_menu = false,
     },
   }
 end
