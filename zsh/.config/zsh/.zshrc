@@ -5,11 +5,11 @@ SAVEHIST=10000
 
 
 setopt appendhistory
-setopt autocd
 setopt nobeep
 setopt correct
 setopt extendedglob
 setopt histignorealldups
+setopt histignorespace
 setopt nocheckjobs
 setopt nomatch
 setopt nocaseglob
@@ -88,3 +88,6 @@ openclose() {
   disown
   exit
 }
+
+# zoxide
+eval "$(zoxide init zsh)"
