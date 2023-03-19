@@ -3,7 +3,7 @@ HISTFILE=~/.config/zsh/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
 
-
+setopt globdots
 setopt appendhistory
 setopt nobeep
 setopt correct
@@ -19,6 +19,7 @@ setopt numericglobsort
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' rehash true
+zstyle ':completion:*' menu select
 
 # Speed up completions
 zstyle ':completion:*' accept-exact '*(N)'
