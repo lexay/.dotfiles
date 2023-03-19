@@ -2,6 +2,9 @@
 # Neovim
 alias vi="nvim"
 
+# Zathura
+alias za="zathura --fork 2>/dev/null"
+
 # Sudo
 alias sudo="sudo "
 
@@ -38,7 +41,7 @@ alias tmux="tmux -f ${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf"
 alias tfs="tmuxinator_fzf_start "
 alias session="tmux_sessionizer"
 
-# LF in 2 tmux panes
+# Vifm
 alias far="tmux neww -n 'far' vifm"
 
 # LESS
