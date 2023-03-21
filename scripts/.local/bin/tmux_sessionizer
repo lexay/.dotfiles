@@ -6,7 +6,7 @@
 if [[ $# -eq 1 ]]; then
   selected=$1
 else
-  selected=$(find \
+  selected=$({ find \
     $LIBRARY_HOME \
     $BASH_HOME \
     $CRYSTAL_HOME \
@@ -22,24 +22,30 @@ else
     $SINATRA_HOME \
     $TS_HOME \
     $WEB_HOME \
-    $WIKI_HOME \
-    -mindepth 1 -maxdepth 1 -type d | fzf --height=100)
+    -mindepth 1 -maxdepth 1 -type d & zoxide query -l; } | fzf --height=100)
 fi
 
 if [[ -z $selected ]]; then
   exit 0
 fi
 
-selected_name=$(basename "$selected" | tr . _)
+# Name of the current session is:
+
+# destination directory
+# selected_name=$(basename "$selected" | tr . _)
+
+# parent of the destination directory + destination directory
+# selected_name=$(echo $selected | sed -E 's/^.+(\/\.?\w+\/\.?\w+)$/\1/')
+
+# 1 first letter of each directory (dots are ignored) to the destination directory + destination directory
+selected_name=$(echo $selected | sed -E 's/\.?(\w)[a-zA-Z0-9@_-]+\//\1\//g' | sed -E 's/^\/h\/./~/' | sed -E 's/\.//')
+
 tmux_running=$(pgrep tmux)
 
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
   tmux new-session -s $selected_name -c $selected
-  exit 0
-fi
-
-if ! tmux has-session -t=$selected_name 2> /dev/null; then
-  tmux new-session -ds $selected_name -c $selected
+elif ! tmux has-session -t=$selected_name 2> /dev/null; then
+  tmux new-session -d -s $selected_name -c $selected
 fi
 
 tmux switch-client -t $selected_name
