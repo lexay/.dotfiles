@@ -63,12 +63,12 @@
 
 " ----------------------------------------------------------------- Refactoring:
   " Locate method definition/references/implementation/type-definition
-  nmap <silent> <leader>de <Plug>(coc-definition)
-  nmap <silent> <leader>re <Plug>(coc-references)
-  nmap <silent> <leader>im <Plug>(coc-implementation)
-  nmap <silent> <leader>ty <Plug>(coc-type-definition)
+  nmap <silent> <leader>cde <Plug>(coc-definition)
+  nmap <silent> <leader>cre <Plug>(coc-references)
+  nmap <silent> <leader>cim <Plug>(coc-implementation)
+  nmap <silent> <leader>cty <Plug>(coc-type-definition)
 
   " Rename all instances of WORD under cursor in current buffer.
-  nmap <leader>rn <Plug>(coc-rename)
+  nmap <leader>crn <Plug>(coc-rename)
   " Find all occurencies of WORD under cursor and refactor it.
-  nnoremap <leader>rf :CocSearch <C-R>=expand("<cword>")<CR><CR>
+  nnoremap <leader>cs :CocSearch <C-R>=expand("<cword>")<CR><CR>

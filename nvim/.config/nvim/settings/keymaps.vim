@@ -27,9 +27,9 @@ nnoremap cN *``cgN
 nnoremap <leader><leader> <C-^>
 
 " Close current buffer
-nnoremap <silent><leader>c :bdelete<CR>
+nnoremap <leader>d :bdelete<CR>
 " Close all buffers
-nnoremap <silent><leader>C :%bdelete<CR>
+nnoremap <leader>D :%bdelete<CR>
 
 " Move natively in command mode with Ctr-h/j/k/l
 cnoremap <C-l> <Right>
@@ -44,12 +44,6 @@ nnoremap <leader>n :bmod<CR>
 nnoremap <leader>1 <C-w>1000h<CR>
 " Jump to last split
 nnoremap <leader>2 <C-w>1000l<CR>
-
-"--------------------------------------------------------------------- Terminal:
-nnoremap <leader>ru :sp<CR>:term ruby %<CR>
-" Esc to normal mode.
-" tnoremap <m-esc> <C-\><C-n>
-" nnoremap <leader>bd :bd!<CR>
 
 " ------------------------------------------------------------------- TableMode:
 nnoremap <leader>t :TableModeToggle<CR>
@@ -101,6 +95,8 @@ vnoremap <leader>y "+y
 nnoremap <leader>y "+y
 nnoremap <leader>p "+p
 nnoremap <leader>P "+P
+vnoremap <leader>p "+p
+vnoremap <leader>P "+P
 
 " Close windows quicklier.
 nnoremap <leader>s :x<CR>
@@ -114,7 +110,7 @@ nnoremap Y y$
 nnoremap <C-z> <nop>
 
 " Change working directory:
-nnoremap <leader>a :cd %:p:h<CR>:pwd<CR>
+nnoremap <leader>a :tcd %:p:h<CR>:pwd<CR>
 
 " Better keyboard switch combo
 cnoremap <A-r> <C-^>
@@ -136,6 +132,9 @@ nnoremap J mzJ`z
 " Substitute <pattern> for other <pattern> in search mode.
 nnoremap <leader>su :%s///<left><left>
 vnoremap <leader>su :s///<left><left>
+
+" Visual select to EOL not including new line char
+nnoremap v$ v$<left>
 
 " --------------------------------------------------------------------- Testing:
 nnoremap <C-d> <C-d>zz

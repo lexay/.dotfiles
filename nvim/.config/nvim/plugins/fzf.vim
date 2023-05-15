@@ -4,9 +4,12 @@
   let $FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
   nnoremap <leader>ff :Files<CR>
   " Find word under cursor
-  nnoremap <leader>ftw :Rg <C-R>=expand("<cword>")<CR><CR>
+  nnoremap <leader>fc :Rg <C-R>=expand("<cword>")<CR><CR>
   nnoremap <leader>fw :Rg<CR>
-  nnoremap <leader>b :Buffers<CR>
-  nnoremap <leader>l :BLines<CR>
-  nnoremap <leader>ll :Lines<CR>
+  nnoremap <leader>fg :GFiles<CR>
+  nnoremap <leader>fb :Buffers<CR>
+  nnoremap <leader>fh :Helptags<CR>
+
+  nnoremap <leader>lb :BLines<CR>
+  nnoremap <leader>li :Lines<CR>
 
