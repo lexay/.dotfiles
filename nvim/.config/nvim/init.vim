@@ -118,7 +118,7 @@
    " Wrapper around Git in vim
    Plug 'tpope/vim-fugitive'
 
-   Plug 'tpope/vim-rails', { 'for': 'ruby' }
+   Plug 'tpope/vim-rails'
 
    Plug 'tpope/vim-surround'
 
