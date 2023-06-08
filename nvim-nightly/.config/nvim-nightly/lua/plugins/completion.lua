@@ -4,8 +4,9 @@ local M = {
 
 M.dependencies = {
   'hrsh7th/cmp-buffer',
-  'hrsh7th/cmp-path',
   'hrsh7th/cmp-cmdline',
+  'hrsh7th/cmp-nvim-lsp',
+  'hrsh7th/cmp-path',
   'saadparwaiz1/cmp_luasnip',
 }
 
@@ -85,10 +86,7 @@ M.config = function()
         else
           fallback()
         end
-      end, {
-        "i",
-        "s",
-      }),
+      end, { "i", "s", }),
       ["<S-Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_prev_item()
@@ -97,10 +95,7 @@ M.config = function()
         else
           fallback()
         end
-      end, {
-        "i",
-        "s",
-      }),
+      end, { "i", "s", }),
     },
     formatting = {
       fields = { "kind", "abbr", "menu" },
@@ -116,8 +111,8 @@ M.config = function()
       end,
     },
     sources = {
-      { name = "luasnip" },
       { name = "buffer" },
+      { name = "luasnip" },
       { name = "path" },
     },
     confirm_opts = {
