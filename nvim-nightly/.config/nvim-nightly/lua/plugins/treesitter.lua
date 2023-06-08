@@ -38,4 +38,6 @@ M.config = function()
     }
   end
 
+-- Treesitter Playground
+keymap('n', '<leader>i', ':TSCaptureUnderCursor<cr>')
 return M
