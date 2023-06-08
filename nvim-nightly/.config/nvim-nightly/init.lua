@@ -22,10 +22,10 @@ o.packpath:prepend("~/.local/share/nvim-nightly/site")
 o.packpath:append("~/.local/share/nvim-nightly/site/after")
 
 -- Require utils first to be able to load correctly other settings that depend on it
+require('options')
 require('utils')
 require('plugins')
 require('keymaps')
-require('options')
 
 -- Lazy, Package Manager
 local lazypath = os.getenv('HOME') .. "/.local/share/nvim-nightly/data/lazy/lazy.nvim"
