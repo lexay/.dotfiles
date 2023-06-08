@@ -84,21 +84,3 @@ keymap('n', '<leader>x', ':q!<cr>')
 
 -- Change working directory
 keymap('n', '<leader>a', ':cd %:p:h<cr>:pwd<cr>')
-
--- Telescope
-keymap('n', '<leader>ff', ':Telescope find_files<cr>')
-keymap('n', '<leader>fg', ':Telescope live_grep<cr>')
-keymap('n', '<leader>fb', ':Telescope buffers<cr>')
-keymap('n', '<leader>fh', ':Telescope help_tags<cr>')
-keymap('n', '<C-n>', '<cmd>silent !tmux new-window tmux_sessionizer<CR>')
-
--- Treesitter Playground
-keymap('n', '<leader>p', ':TSCaptureUnderCursor<cr>')
-
--- ====================================================================CMP
--- keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
--- keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
--- keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
--- keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
--- keymap('i', '<c-j>', '<cmd>lua vim.call("vsnip#expand")<cr>')
--- keymap('i', '<c-l>', '<cmd>lua vim.call("vsnip#jump-next")<cr>')
