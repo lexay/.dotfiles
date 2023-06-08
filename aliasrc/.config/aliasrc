@@ -31,11 +31,6 @@ alias rm="rm -Iv"
 # Directories
 alias mkd="mkdir -pv"
 
-# Md book
-alias bkb="mdbook build"
-alias bkc="mdbook clean"
-alias bks="mdbook serve -o"
-
 # Tmux/tmuxinator
 alias tmux="tmux -f ${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf"
 alias tfs="tmuxinator_fzf_start "
