@@ -1,4 +1,7 @@
-local M = {}
+local M = {
+  'neovim/nvim-lspconfig'
+}
+
 M.config = function()
   local nvim_lsp = require('lspconfig')
 
@@ -40,13 +43,22 @@ M.config = function()
 
   -- Use a loop to conveniently call 'setup' on multiple servers and
   -- map buffer local keybindings when the language server attaches
-  local servers = { 'solargraph' }
-  for _, lsp in ipairs(servers) do
-    nvim_lsp[lsp].setup {
+  local servers = { 'solargraph', 'lua_ls' }
+  local mason_lspconfig = require('mason-lspconfig')
+
+  mason_lspconfig.setup({
+      ensure_installed = servers,
+      automatic_installation = true
+    })
+
+  for _, server in ipairs(servers) do
+    mason_lspconfig.setup_handlers {
+      require('lspconfig')[server].setup {
       on_attach = on_attach,
       capabilities = capabilities,
       flags = {
         debounce_text_changes = 500,
+        }
       }
     }
   end
