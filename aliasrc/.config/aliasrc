@@ -31,11 +31,6 @@ alias rm="rm -Iv"
 # Directories
 alias mkd="mkdir -pv"
 
-# Tmux/tmuxinator
-alias tmux="tmux -f ${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf"
-alias tfs="tmuxinator_fzf_start "
-alias session="tmux_sessionizer"
-
 # Vifm
 alias far="tmux neww -n 'far' vifm"
 

@@ -84,7 +84,7 @@ eval "$(rbenv init - zsh)"
 # eval "$(starship init zsh)"
 
 # Start predefined session in tmux:
-bindkey -s "^n" "session\n"
+bindkey -s "^n" "tmux_sessionizer\n"
 
 # Start GUI apps within TERMINAL:
 openclose() {
