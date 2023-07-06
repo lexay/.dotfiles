@@ -11,10 +11,9 @@ export XDG_CACHE_HOME="$HOME/.cache"
 
 # PATH extension
 export PATH="${XDG_DATA_HOME:-$HOME/.local/share}/cargo/bin:$PATH"
+export PATH="${XDG_DATA_HOME:-$HOME/.local/share}/rbenv/bin:$PATH"
 export PATH="${XDG_DATA_HOME:-$HOME/.local/share}/my_scripts/uav:$PATH"
 export PATH="${XDG_DATA_HOME:-$HOME/.local/share}/my_scripts/yls:$PATH"
-export PATH="${XDG_DATA_HOME:-$HOME/.local/share}/rbenv/bin:$PATH"
-export PATH="${XDG_DATA_HOME:-$HOME/.local/share}/fly/bin:$PATH"
 
 # LESS
 export LESSHISTFILE="-"
