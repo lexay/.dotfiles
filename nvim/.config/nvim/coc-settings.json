@@ -6,4 +6,5 @@
   "solargraph.transport": "stdio",
   "emmet.includeLanguages": { "eruby": "html" },
   "suggest.noselect": true,
+  "snippets.ultisnips.pythonPrompt": false,
 } 
