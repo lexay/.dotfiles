@@ -1,12 +1,26 @@
 #!bin/zsh
-# Neovim
-alias vi="nvim"
 
-# Zathura
-alias za="zathura --fork 2>/dev/null"
+# Copy/move/remove
+alias cp="cp -iv"
+alias mv="mv -iv"
+alias rm="rm -Iv"
 
-# Sudo
-alias sudo="sudo "
+# Diff
+alias diff="diff --color=auto"
+
+# Greps
+alias egrep="egrep --color=auto"
+alias fgrep="fgrep --color=auto"
+alias grep="grep --color=auto"
+
+# Directories
+alias mkd="mkdir -pv"
+
+# Info
+alias info="info --vi-keys"
+
+# LESS
+alias less="less --use-color -Dsm"
 
 # LS
 alias ls="ls --color=auto --group-directories-first"
@@ -15,27 +29,14 @@ alias ld="ls -ald"
 alias la="ls -A"
 alias l="ls -CF"
 
-# Greps
-alias grep="grep --color=auto"
-alias fgrep="fgrep --color=auto"
-alias egrep="egrep --color=auto"
+# Neovim
+alias vi="nvim"
 
-# Diff
-alias diff="diff --color=auto"
-
-# Move/remove/copy
-alias mv="mv -iv"
-alias cp="cp -iv"
-alias rm="rm -Iv"
-
-# Directories
-alias mkd="mkdir -pv"
+# Sudo
+alias sudo="sudo "
 
 # Vifm
 alias far="tmux neww -n 'far' vifm"
 
-# LESS
-alias less="less --use-color -Dsm"
-
-# Info
-alias info="info --vi-keys"
+# Zathura
+alias za="zathura --fork 2>/dev/null"
