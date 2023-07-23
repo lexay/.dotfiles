@@ -124,10 +124,10 @@
 
    Plug 'tpope/vim-unimpaired'
 
-   Plug 'vim-airline/vim-airline'
+   " Treat netrw file tree like a vim buffer
+   Plug 'tpope/vim-vinegar'
 
-   " Ruby config & compile within vim
-   " Plug 'vim-ruby/vim-ruby' 
+   Plug 'vim-airline/vim-airline'
 
   call plug#end()
 
