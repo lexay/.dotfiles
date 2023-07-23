@@ -40,3 +40,4 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 
 # GTK
 export GTK2_RC_FILES="$HOME/.config/gtk-2.0"
+export GTK_THEME="Mint-Y-Dark-Teal"
