@@ -1,5 +1,5 @@
 " Gvdiffsplit! Ours vs Their
-nmap <leader>< :diffget //2<CR>
-nmap <leader>> :diffget //3<CR>
-nmap <leader>gl :Gclog<CR>
-nmap <leader>gg :G<CR>
+nmap gh :diffget //2<CR>
+nmap gl :diffget //3<CR>
+nmap gj :Gclog<CR>
+nmap gs :G<CR>
