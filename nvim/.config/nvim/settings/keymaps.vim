@@ -140,4 +140,3 @@ nnoremap v$ v$<left>
 " --------------------------------------------------------------------- Testing:
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
-nnoremap <leader><leader>n :!tmux new-window fzf_tmux_sessions<CR>
