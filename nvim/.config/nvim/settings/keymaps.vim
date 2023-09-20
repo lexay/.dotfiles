@@ -71,10 +71,10 @@ nnoremap _ :resize -10<CR>
 nnoremap + :resize +10<CR>
 
 " Swap window to left / right / up / down
-nnoremap <A-[> <C-w>H<CR>
-nnoremap <A-]> <C-w>L<CR>
-nnoremap <A-'> <C-w>K<CR>
-nnoremap <A-/> <C-w>J<CR>
+nnoremap <A-h> <C-w>H<CR>
+nnoremap <A-l> <C-w>L<CR>
+nnoremap <A-k> <C-w>K<CR>
+nnoremap <A-j> <C-w>J<CR>
 
 "Close all windows except focused
 nnoremap <leader>W <C-w><C-o>
