@@ -45,9 +45,6 @@ nnoremap <leader>1 <C-w>1000h<CR>
 " Jump to last split
 nnoremap <leader>2 <C-w>1000l<CR>
 
-" ------------------------------------------------------------------- TableMode:
-nnoremap <leader>t :TableModeToggle<CR>
-
 " ----------------------------------------------------------------- Undo breaks:
 inoremap . .<C-g>u
 inoremap , ,<C-g>u
