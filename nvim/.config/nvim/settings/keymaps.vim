@@ -58,17 +58,17 @@ nnoremap <leader>\ :vsplit<CR>
 nnoremap <leader>- :split<CR>
 
 " Scale window size to max width/height and back
-nnoremap <leader>w :vertical resize<CR>
-nnoremap <leader>h :resize<CR>
-nnoremap <leader>n <C-w>=<Space><CR>
+nnoremap <leader>) :vertical resize<CR>
+nnoremap <leader>_ :resize<CR>
+nnoremap <leader>= <C-w>=<Space><CR>
 
-" Resize window width
-nnoremap <A-h> :vertical resize -10<CR>
-nnoremap <A-l> :vertical resize +10<CR>
+" Resize active window width
+nnoremap ( :vertical resize -10<CR>
+nnoremap ) :vertical resize +10<CR>
 
-" Resize window height
-nnoremap <A-j> :resize -10<CR>
-nnoremap <A-k> :resize +10<CR>
+" Resize active window height
+nnoremap _ :resize -10<CR>
+nnoremap + :resize +10<CR>
 
 " Swap window to left / right / up / down
 nnoremap <A-[> <C-w>H<CR>
