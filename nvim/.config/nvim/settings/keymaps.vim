@@ -76,8 +76,8 @@ nnoremap <A-l> <C-w>L<CR>
 nnoremap <A-k> <C-w>K<CR>
 nnoremap <A-j> <C-w>J<CR>
 
-"Close all windows except focused
-nnoremap <leader>W <C-w><C-o>
+" Close all windows except focused
+nnoremap <leader>w <C-w><C-o>
 
 " ------------------------------------------------------------------------ Tabs:
 " Open init.vim in a new tab
