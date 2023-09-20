@@ -1,3 +1,2 @@
 "-------------------------------------------------------------------- TableMode:
-  nnoremap <leader>tm :TableModeToggle<CR>
-
+  nnoremap <leader>T :TableModeToggle<CR>
