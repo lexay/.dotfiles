@@ -79,14 +79,18 @@ nnoremap <A-j> <C-w>J<CR>
 "Close all windows except focused
 nnoremap <leader>W <C-w><C-o>
 
-" -------------------------------------------------------------------- Vim Tabs:
+" ------------------------------------------------------------------------ Tabs:
 " Open init.vim in a new tab
-nnoremap <leader>vrc :tabnew $MYVIMRC<CR>
-nnoremap ( :tabprevious<CR>
-nnoremap ) :tabnext<CR>
+nnoremap <silent><leader>vrc :tabnew $MYVIMRC<CR>
+
+" Switch between tabs
+nnoremap <silent><A-,> :tabprevious<CR>
+nnoremap <silent><A-.> :tabnext<CR>
+
+" Close all tabs except focused
+nnoremap <silent><leader>t :tabonly<CR>
 
 " ----------------------------------------------------------------- Other stuff:
-
 " Copy/paste from system clipboard
 vnoremap <leader>y "+y
 nnoremap <leader>y "+y
