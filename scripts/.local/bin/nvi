@@ -1,3 +1,0 @@
-#!/bin/bash
-
-MYVIMRC=$HOME/.config/nvim-nightly/init.lua NVIM_RPLUGIN_MANIFEST=$HOME/.local/share/nvim-nightly/rplugin.vim VIMRUNTIME=$HOME/.nvim-nightly/runtime $HOME/.nvim-nightly/build/bin/nvim "$@" -u $HOME/.config/nvim-nightly/init.lua
