@@ -12,7 +12,7 @@ if [[ -z $selected ]]; then
   exit 0
 fi
 
-# Name of the current session is a name of:
+# Name of the current session consists of:
 
 # destination directory
 # selected_name=$(basename "$selected" | tr . _)
@@ -20,8 +20,8 @@ fi
 # parent of the destination directory + destination directory
 # selected_name=$(echo $selected | sed -E 's/^.+(\/\.?\w+\/\.?\w+)$/\1/')
 
-# 1 first letter of each directory (dots are ignored) to the destination directory + destination directory
-selected_name=$(echo $selected | sed -E 's/\.?(\w)[a-zA-Z0-9@_-]+\//\1\//g' | sed -E 's/^\/h\/./~/' | sed -E 's/\.//')
+# 1 first letter of each directory (dots are underscores) to the destination directory + full name of the destination directory
+selected_name=$(echo $selected  | sed -E 's:^\/home\/[^/]+:~:; s:\.:_:g; s:([^~/_])[^/]+\/:\1\/:g;')
 
 tmux_running=$(pgrep tmux)
 
