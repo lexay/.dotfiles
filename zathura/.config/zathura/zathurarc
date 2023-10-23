@@ -15,3 +15,5 @@ set statusbar-v-padding 0
 
 set window-height 1080
 set window-width 1920
+
+set sandbox 'strict'
