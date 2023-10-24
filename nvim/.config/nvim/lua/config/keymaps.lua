@@ -31,9 +31,9 @@ keymap("n", "<c-u>", "<c-u>zz")
 
 -- Windows
 -- Open vertical split
-keymap("n", [[<leader>\]], ":vsplit<cr>")
+keymap("n", [[<leader>|]], ":vsplit<cr>")
 -- Open horizontal split
-keymap("n", "<leader>-", ":split<cr>")
+keymap("n", "<leader>_", ":split<cr>")
 -- Move natively in command mode with Ctr-h/j/k/l
 keymap("c", "<c-l>", "<right>")
 keymap("c", "<c-h>", "<left>")
@@ -41,14 +41,14 @@ keymap("c", "<c-j>", "<down>")
 keymap("c", "<c-k>", "<up>")
 -- Scale window size to max width / height / to normal
 keymap("n", "<leader>)", ":vertical resize<cr>")
-keymap("n", "<leader>_", ":resize<cr>")
-keymap("n", "<leader>=", "<c-w>=<space><cr>")
+keymap("n", "<leader>-", ":resize<cr>")
+keymap("n", "<leader>0", "<c-w>=<space><cr>")
 -- Resize window width
 keymap("n", "(", ":vertical resize -10<cr>")
-keymap("n", ")>", ":vertical resize +10<cr>")
+keymap("n", ")", ":vertical resize +10<cr>")
 -- Resize window height
-keymap("n", "_", ":resize -10<cr>")
-keymap("n", "+", ":resize +10<cr>")
+keymap("n", "-", ":resize -10<cr>")
+keymap("n", "=", ":resize +10<cr>")
 -- Swap window to left / right / up / down
 keymap("n", "<a-h>", "<c-w>H<cr>")
 keymap("n", "<a-l>", "<c-w>L<cr>")
@@ -114,3 +114,6 @@ keymap("v", ">", ">gv")
 keymap("v", "<", "<gv")
 keymap("v", "J", [[:m '>+1<cr>gv=gv]])
 keymap("v", "K", [[:m '<-2<cr>gv=gv]])
+-- Choose ours/theirs diffget
+keymap('n', 'gh', [[:diffget /2<cr>]])
+keymap('n', 'gl', [[:diffget /3<cr>]])
