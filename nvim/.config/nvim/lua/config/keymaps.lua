@@ -61,7 +61,7 @@ keymap("n", "<leader>W", ":only<cr>")
 
 -- Tabs
 -- Open $MYVIMRC in new tab
-keymap("n", "<leader>vrc", ":tabnew $MYVIMRC<cr>")
+keymap("n", "<leader>vrc", ":tabnew $MYVIMRC<cr> :cd %:p:h<cr>:pwd<cr>")
 -- Switch tabs
 keymap("n", "<a-,>", ":tabprevious<cr>", { silent = true })
 keymap("n", "<a-.>", ":tabnext<cr>", { silent = true })
@@ -115,5 +115,7 @@ keymap("v", "<", "<gv")
 keymap("v", "J", [[:m '>+1<cr>gv=gv]])
 keymap("v", "K", [[:m '<-2<cr>gv=gv]])
 -- Choose ours/theirs diffget
-keymap('n', 'gh', [[:diffget /2<cr>]])
-keymap('n', 'gl', [[:diffget /3<cr>]])
+keymap("n", "gh", [[:diffget /2<cr>]])
+keymap("n", "gl", [[:diffget /3<cr>]])
+-- Inspect for syntax tree objects
+keymap("n", "<leader>k", ":Inspect<cr>")
