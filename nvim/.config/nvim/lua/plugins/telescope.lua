@@ -24,6 +24,7 @@ M.config = function()
       find_files = {
         hidden = true,
         previewer = false,
+        no_ignore = true,
       }
     }
   })
