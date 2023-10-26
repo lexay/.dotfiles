@@ -17,4 +17,23 @@ M.dependencies = {
   "L3MON4D3/LuaSnip"
   }
 
+M.config = function()
+  local lsp_zero = require("lsp-zero")
+  local lsp_config = require("lspconfig")
+
+  lsp_zero.on_attach(function(client, bufnr)
+    lsp_zero.default_keymaps({buffer = bufnr})
+  end)
+  require("mason").setup()
+  require("mason-lspconfig").setup({
+    ensure_installed = {"solargraph"},
+    handlers = {
+      lsp_zero.default_setup,
+      solargraph = function()
+        lsp_config.solargraph.setup({})
+      end
+    }
+  })
+end
+
 return M
