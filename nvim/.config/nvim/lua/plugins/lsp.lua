@@ -46,12 +46,31 @@ M.config = function()
     vim.keymap.set("n", "<leader>ld", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
   end)
 
+  local cmp = require("cmp")
+  local cmp_action = lsp_zero.cmp_action()
+
   -- Lazy load when using LuaSnip
   -- https://github.com/rafamadriz/friendly-snippets#with-lazynvim
   require("luasnip.loaders.from_vscode").lazy_load()
   -- Add snippets from a framework to a filetype
   -- https://github.com/rafamadriz/friendly-snippets#add-snippets-from-a-framework-to-a-filetype
   require("luasnip").filetype_extend("ruby", { "rails" })
+
+  cmp.setup({
+    mapping = cmp.mapping.preset.insert({
+      ["<CR>"] = cmp.mapping.confirm({ select = false }),
+      ["<Tab>"] = cmp_action.luasnip_supertab(),
+      ["<S-Tab>"] = cmp_action.luasnip_shift_supertab(),
+      ["C-f"] = cmp.mapping.scroll_docs(4),
+      ["C-b"] = cmp.mapping.scroll_docs(-4),
+    }),
+    sources = {
+      { name = "buffer" },
+      { name = "path" },
+      { name = "nvim_lsp" },
+      { name = "luasnip" },
+    },
+  })
 end
 
 return M
