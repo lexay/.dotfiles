@@ -15,7 +15,7 @@ o.writebackup = false
 
 o.history = 50
 o.cmdheight =  2
-o.updatetime = 50
+o.updatetime = 250
 o.lazyredraw = true
 o.clipboard = 'unnamed'
 o.hidden = true
