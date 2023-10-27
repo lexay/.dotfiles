@@ -21,9 +21,6 @@ M.config = function()
   local lsp_zero = require("lsp-zero")
   local lsp_config = require("lspconfig")
 
-  lsp_zero.on_attach(function(client, bufnr)
-    lsp_zero.default_keymaps({buffer = bufnr})
-  end)
   require("mason").setup()
   require("mason-lspconfig").setup({
     ensure_installed = {"solargraph"},
@@ -34,6 +31,14 @@ M.config = function()
       end
     }
   })
+
+  lsp_zero.on_attach(function(client, bufnr)
+    local opts = {buffer = bufnr}
+    vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
+    vim.keymap.set("n", "<leader>ln", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
+    vim.keymap.set("n", "<leader>lf", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
+    vim.keymap.set("n", "<leader>ld", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
+  end)
 end
 
 return M
