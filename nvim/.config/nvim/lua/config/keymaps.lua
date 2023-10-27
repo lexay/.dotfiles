@@ -31,9 +31,9 @@ keymap("n", "<c-u>", "<c-u>zz")
 
 -- Windows
 -- Open vertical split
-keymap("n", [[<leader>|]], ":vsplit<cr>")
+keymap("n", [[<leader>\]], ":vsplit<cr>")
 -- Open horizontal split
-keymap("n", "<leader>_", ":split<cr>")
+keymap("n", "<leader>-", ":split<cr>")
 -- Move natively in command mode with Ctr-h/j/k/l
 keymap("c", "<c-l>", "<right>")
 keymap("c", "<c-h>", "<left>")
@@ -41,7 +41,7 @@ keymap("c", "<c-j>", "<down>")
 keymap("c", "<c-k>", "<up>")
 -- Scale window size to max width / height / to normal
 keymap("n", "<leader>)", ":vertical resize<cr>")
-keymap("n", "<leader>-", ":resize<cr>")
+keymap("n", "<leader>_", ":resize<cr>")
 keymap("n", "<leader>0", "<c-w>=<space><cr>")
 -- Resize window width
 keymap("n", "(", ":vertical resize -10<cr>")
@@ -61,7 +61,7 @@ keymap("n", "<leader>W", ":only<cr>")
 
 -- Tabs
 -- Open $MYVIMRC in new tab
-keymap("n", "<leader>vrc", ":tabnew $MYVIMRC<cr> :cd %:p:h<cr>:pwd<cr>")
+keymap("n", "<leader>vrc", ":tabnew $MYVIMRC<cr> :tcd %:p:h<cr>:pwd<cr>")
 -- Switch tabs
 keymap("n", "<a-,>", ":tabprevious<cr>", { silent = true })
 keymap("n", "<a-.>", ":tabnext<cr>", { silent = true })
