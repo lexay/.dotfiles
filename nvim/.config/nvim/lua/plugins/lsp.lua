@@ -14,8 +14,13 @@ M.dependencies = {
   "hrsh7th/cmp-path",
   "hrsh7th/cmp-buffer",
   -- Snippets
-  "L3MON4D3/LuaSnip"
-  }
+  -- https://github.com/rafamadriz/friendly-snippets#with-lazynvim
+  {
+    "L3MON4D3/LuaSnip",
+    version = "v2.*",
+    dependencies = { "rafamadriz/friendly-snippets" },
+  },
+}
 
 M.config = function()
   local lsp_zero = require("lsp-zero")
@@ -39,6 +44,13 @@ M.config = function()
     vim.keymap.set("n", "<leader>lf", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
     vim.keymap.set("n", "<leader>ld", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
   end)
+
+  -- Lazy load when using LuaSnip
+  -- https://github.com/rafamadriz/friendly-snippets#with-lazynvim
+  require("luasnip.loaders.from_vscode").lazy_load()
+  -- Add snippets from a framework to a filetype
+  -- https://github.com/rafamadriz/friendly-snippets#add-snippets-from-a-framework-to-a-filetype
+  require("luasnip").filetype_extend("ruby", { "rails" })
 end
 
 return M
