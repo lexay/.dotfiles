@@ -3,6 +3,7 @@ local M = {
 }
 
 M.branch = "v3.x"
+M.event = "InsertEnter"
 M.dependencies = {
   -- LSP support
   "williamboman/mason.nvim",
