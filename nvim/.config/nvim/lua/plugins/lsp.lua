@@ -50,13 +50,6 @@ M.config = function()
   local cmp = require("cmp")
   local cmp_action = lsp_zero.cmp_action()
 
-  -- Lazy load when using LuaSnip
-  -- https://github.com/rafamadriz/friendly-snippets#with-lazynvim
-  require("luasnip.loaders.from_vscode").lazy_load()
-  -- Add snippets from a framework to a filetype
-  -- https://github.com/rafamadriz/friendly-snippets#add-snippets-from-a-framework-to-a-filetype
-  require("luasnip").filetype_extend("ruby", { "rails" })
-
   cmp.setup({
     mapping = cmp.mapping.preset.insert({
       ["<CR>"] = cmp.mapping.confirm({ select = false }),
@@ -72,6 +65,13 @@ M.config = function()
       { name = "luasnip" },
     },
   })
+
+  -- Lazy load when using LuaSnip
+  -- https://github.com/rafamadriz/friendly-snippets#with-lazynvim
+  require("luasnip.loaders.from_vscode").lazy_load()
+  -- Add snippets from a framework to a filetype
+  -- https://github.com/rafamadriz/friendly-snippets#add-snippets-from-a-framework-to-a-filetype
+  require("luasnip").filetype_extend("ruby", { "rails" })
 
   -- Show line diagnostics automatically in hover window
   -- https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization#show-line-diagnostics-automatically-in-hover-window
