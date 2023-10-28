@@ -41,10 +41,10 @@ M.config = function()
 
   lsp_zero.on_attach(function(client, bufnr)
     local opts = {buffer = bufnr}
-    vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
-    vim.keymap.set("n", "<leader>ln", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
-    vim.keymap.set("n", "<leader>lf", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
-    vim.keymap.set("n", "<leader>ld", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
+    keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
+    keymap("n", "<leader>ln", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
+    keymap("n", "<leader>lr", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
+    keymap("n", "<leader>ld", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
   end)
 
   local cmp = require("cmp")
