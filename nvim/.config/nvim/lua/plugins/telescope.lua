@@ -25,7 +25,16 @@ M.config = function()
         hidden = true,
         previewer = false,
         no_ignore = true,
-      }
+        theme = "dropdown",
+      },
+      live_grep = {
+        previewer = false,
+        theme = "dropdown",
+      },
+      find_buffers = {
+        previewer = false,
+        theme = "dropdown",
+      },
     }
   })
 
