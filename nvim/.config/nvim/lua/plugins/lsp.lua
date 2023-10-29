@@ -1,5 +1,5 @@
 local M = {
-  "VonHeikemen/lsp-zero.nvim"
+  "VonHeikemen/lsp-zero.nvim",
 }
 
 M.branch = "v3.x"
@@ -21,6 +21,7 @@ M.dependencies = {
     version = "v2.*",
     dependencies = { "rafamadriz/friendly-snippets" },
   },
+  "stevearc/conform.nvim",
 }
 
 M.config = function()
@@ -36,11 +37,11 @@ M.config = function()
     },
     handlers = {
       lsp_zero.default_setup,
-    }
+    },
   })
 
   lsp_zero.on_attach(function(client, bufnr)
-    local opts = {buffer = bufnr}
+    local opts = { buffer = bufnr }
     keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
     keymap("n", "<leader>ln", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
     keymap("n", "<leader>lr", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
@@ -73,6 +74,26 @@ M.config = function()
   -- https://github.com/rafamadriz/friendly-snippets#add-snippets-from-a-framework-to-a-filetype
   require("luasnip").filetype_extend("ruby", { "rails" })
 
+  -- Conform, formatter
+  require("conform").setup({
+    formatters_by_ft = {
+      lua = { "stylua" },
+      eruby = { "htmlbeautifier" },
+    },
+    formatters = {
+      stylua = {
+        inherit = true,
+        prepend_args = {
+          "--indent-type=Spaces",
+          "--indent-width=2",
+        },
+      },
+    },
+    format_on_save = {
+      lsp_fallback = true,
+    },
+  })
+
   -- Show line diagnostics automatically in hover window
   -- https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization#show-line-diagnostics-automatically-in-hover-window
   vim.diagnostic.config({ virtual_text = false })
@@ -88,9 +109,8 @@ M.config = function()
         scope = "cursor",
       }
       vim.diagnostic.open_float(nil, opts)
-    end
-  }
-  )
+    end,
+  })
 end
 
 return M
