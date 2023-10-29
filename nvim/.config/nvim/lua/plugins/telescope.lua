@@ -38,6 +38,10 @@ M.config = function()
       help_tags = {
         previewer = false,
         theme = "dropdown",
+      },
+      man_pages = {
+        previewer = false,
+        theme = "dropdown",
       }
     }
   })
