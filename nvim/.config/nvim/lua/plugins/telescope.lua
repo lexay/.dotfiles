@@ -28,13 +28,17 @@ M.config = function()
         theme = "dropdown",
       },
       live_grep = {
+        previewer = true,
+        theme = "dropdown",
+      },
+      buffers = {
         previewer = false,
         theme = "dropdown",
       },
-      find_buffers = {
+      help_tags = {
         previewer = false,
         theme = "dropdown",
-      },
+      }
     }
   })
 
