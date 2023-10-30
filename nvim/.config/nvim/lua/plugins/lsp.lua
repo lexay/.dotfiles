@@ -41,6 +41,9 @@ M.config = function()
   })
 
   lsp_zero.on_attach(function(client, bufnr)
+    -- Opt out of semantic highlighting
+    -- :h vim.lsp.semantic_tokens_start()
+    client.server_capabilities.semanticTokensProvider = nil
     local opts = { buffer = bufnr }
     keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
     keymap("n", "<leader>ln", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
