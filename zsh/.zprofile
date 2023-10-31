@@ -1,5 +1,5 @@
 # System
-export EDITOR='nvim'
+export EDITOR='nvim --clean'
 export TERMINAL='alacritty'
 export BROWSER='brave'
 export READER='zathura'
