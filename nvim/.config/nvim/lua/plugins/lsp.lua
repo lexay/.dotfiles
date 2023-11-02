@@ -26,7 +26,6 @@ M.dependencies = {
 
 M.config = function()
   local lsp_zero = require("lsp-zero")
-  local lsp_config = require("lspconfig")
 
   require("mason").setup()
   require("mason-lspconfig").setup({
@@ -51,6 +50,7 @@ M.config = function()
     keymap("n", "<leader>ld", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
   end)
 
+  -- CMP
   local cmp = require("cmp")
   local cmp_action = lsp_zero.cmp_action()
 
@@ -70,12 +70,14 @@ M.config = function()
     },
   })
 
+  -- LuaSnip
   -- Lazy load when using LuaSnip
   -- https://github.com/rafamadriz/friendly-snippets#with-lazynvim
   require("luasnip.loaders.from_vscode").lazy_load()
   -- Add snippets from a framework to a filetype
   -- https://github.com/rafamadriz/friendly-snippets#add-snippets-from-a-framework-to-a-filetype
   require("luasnip").filetype_extend("ruby", { "rails" })
+  require("luasnip").filetype_extend("eruby", { "html" })
 
   -- Conform, formatter
   require("conform").setup({
