@@ -1,5 +1,5 @@
-vim.api.nvim_create_autocmd("BufWritePost",
-{
-  pattern = (vim.env.HOME .. "/.dotfiles/nvim/.config/nvim/init.lua"),
-  command = "source $MYVIMRC"
+-- Create no undofile for specific filetypes
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = { "*.env" },
+  command = "lua vim.bo.undofile = false",
 })
