@@ -29,6 +29,7 @@ M.config = function()
   keymap("n", "<a-c>", "<cmd>lua vimux_run()<cr>")
   keymap("n", "<a-b>", [[<cmd>lua vimux_run("bundle exec ruby")<cr>]])
   keymap("n", "<a-x>", "<cmd>VimuxCloseRunner<cr>")
+  keymap("n", "<a-o>", "<cmd>VimuxRunLastCommand<cr>")
 
   -- Settings
   vim.g["VimuxUseNearest"] = 0
