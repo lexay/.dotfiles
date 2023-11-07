@@ -21,8 +21,9 @@ keymap("n", "g*", "g*zz")
 keymap("n", "g#", "g#zz")
 keymap("n", "J", "mzJ`z")
 -- Substitute match
-keymap("n", "<leader>su", ":%s///<left><left>")
-keymap("v", "<leader>su", ":s///<left><left>")
+keymap("n", "<leader>si", ":%s///<left><left>g")
+keymap("v", "<leader>si", ":s///<left><left>")
+keymap("v", "<leader>sw", [["cy:%s/<c-r>c//g<left><left>]])
 -- Highlight last inserted text
 keymap("n", "gV", "`[v`]")
 -- Move half window with cursor staying in the middle
@@ -89,7 +90,7 @@ keymap("n", "Y", "y$")
 -- Change working directory
 keymap("n", "<leader>a", ":cd %:p:h<cr>:pwd<cr>")
 -- Better keyboard switch combo
-keymap({"c", "i"}, "<a-r>", "<c-^>")
+keymap({ "c", "i" }, "<a-r>", "<c-^>")
 -- Open Netrw explorer
 keymap("n", "<leader>e", ":Explore<cr>")
 -- Undo breaks
@@ -104,7 +105,7 @@ keymap("n", "cN", "*``cgN")
 keymap("n", "v$", "v$<left>")
 -- Unmaps
 -- Interferes with discord
-keymap({ "n"}, "`", "<nop>")
+keymap({ "n" }, "`", "<nop>")
 -- Interferes with tmux
 keymap("n", "<c-z>", "<nop>")
 -- Preserve copied
