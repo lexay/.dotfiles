@@ -1,5 +1,6 @@
 vim.g.mapleader = " "
 keymap = vim.keymap.set
+utils = require("config.utils")
 
 -- Keymaps
 
@@ -124,3 +125,5 @@ keymap("n", "<leader>k", ":Inspect<cr>")
 -- Cnext, cprevious
 keymap("n", "<c-n>", "<cmd>cnext<cr>")
 keymap("n", "<c-p>", "<cmd>cprevious<cr>")
+-- Ruby docs
+keymap("n", "<leader>h", utils.find_ri)
