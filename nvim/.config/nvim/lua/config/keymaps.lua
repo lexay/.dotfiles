@@ -121,3 +121,6 @@ keymap("n", "gh", [[:diffget /2<cr>]])
 keymap("n", "gl", [[:diffget /3<cr>]])
 -- Inspect for syntax tree objects
 keymap("n", "<leader>k", ":Inspect<cr>")
+-- Cnext, cprevious
+keymap("n", "<c-n>", "<cmd>cnext<cr>")
+keymap("n", "<c-p>", "<cmd>cprevious<cr>")
