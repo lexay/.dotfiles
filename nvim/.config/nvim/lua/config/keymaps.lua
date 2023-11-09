@@ -12,7 +12,22 @@ keymap("n", "<leader>b", ":bdelete<cr>", { silent = true })
 -- Close all buffers
 keymap("n", "<leader>B", ":%bdelete<cr>", { silent = true })
 
--- Searching and replacing
+-- Moving
+-- Move in command/search mode
+-- By one character
+keymap("c", "<c-l>", "<right>")
+keymap("c", "<c-h>", "<left>")
+keymap("c", "<c-j>", "<down>")
+keymap("c", "<c-k>", "<up>")
+-- By one word with
+keymap("c", "<a-l>", "<s-right>")
+keymap("c", "<a-h>", "<s-left>")
+-- Move in normal mode
+-- Half window up/down with cursor staying in the middle
+keymap("n", "<c-d>", "<c-d>zz")
+keymap("n", "<c-u>", "<c-u>zz")
+
+-- Searching
 -- Match is always in the middle
 keymap("n", "n", "nzz")
 keymap("n", "N", "Nzz")
@@ -20,27 +35,24 @@ keymap("n", "*", "*zz")
 keymap("n", "#", "#zz")
 keymap("n", "g*", "g*zz")
 keymap("n", "g#", "g#zz")
-keymap("n", "J", "mzJ`z")
--- Substitute match
-keymap("n", "<leader>si", ":%s///<left><left>g")
-keymap("v", "<leader>si", ":s///<left><left>")
-keymap("v", "<leader>sw", [["cy:%s/<c-r>c//g<left><left>]])
+
+-- Substitute in
+-- Whole file
+keymap("n", "<leader>si", ":%s///gc<left><left><left><left>")
+-- Whole file matching selected <cword>
+keymap("v", "<leader>sw", [["cy:%s/<c-r>c//gc<left><left><left>]])
+-- Selected block
+keymap("v", "<leader>si", ":s///gc<left><left><left><left>")
+
+-- Highlighting
 -- Highlight last inserted text
 keymap("n", "gV", "`[v`]")
--- Move half window with cursor staying in the middle
-keymap("n", "<c-d>", "<c-d>zz")
-keymap("n", "<c-u>", "<c-u>zz")
 
 -- Windows
 -- Open vertical split
 keymap("n", [[<leader>\]], ":vsplit<cr>")
 -- Open horizontal split
 keymap("n", "<leader>-", ":split<cr>")
--- Move natively in command mode with Ctr-h/j/k/l
-keymap("c", "<c-l>", "<right>")
-keymap("c", "<c-h>", "<left>")
-keymap("c", "<c-j>", "<down>")
-keymap("c", "<c-k>", "<up>")
 -- Scale window size to max width / height / to normal
 keymap("n", "<leader>)", ":vertical resize<cr>")
 keymap("n", "<leader>_", ":resize<cr>")
@@ -88,6 +100,8 @@ keymap("n", "<leader>q", ":q!<cr>")
 keymap("n", "<leader>Q", ":qa<cr>")
 -- Yank to EOL
 keymap("n", "Y", "y$")
+-- Join lines and jump to cursor's previous position
+keymap("n", "J", "mzJ`z")
 -- Change working directory
 keymap("n", "<leader>a", ":cd %:p:h<cr>:pwd<cr>")
 -- Better keyboard switch combo
