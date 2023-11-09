@@ -126,4 +126,5 @@ keymap("n", "<leader>k", ":Inspect<cr>")
 keymap("n", "<c-n>", "<cmd>cnext<cr>")
 keymap("n", "<c-p>", "<cmd>cprevious<cr>")
 -- Ruby docs
-keymap("n", "<leader>h", utils.find_ri)
+keymap("n", "<leader>frbh", utils.show_ri)
+keymap("n", "<leader>frbg", utils.find_ri)
