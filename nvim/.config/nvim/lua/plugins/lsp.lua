@@ -14,6 +14,7 @@ M.dependencies = {
   "hrsh7th/cmp-nvim-lsp",
   "hrsh7th/cmp-path",
   "hrsh7th/cmp-buffer",
+  "saadparwaiz1/cmp_luasnip",
   -- Snippets
   -- https://github.com/rafamadriz/friendly-snippets#with-lazynvim
   {
