@@ -11,6 +11,7 @@ M.dependencies = {
   "neovim/nvim-lspconfig",
   -- Autocompletion
   "hrsh7th/nvim-cmp",
+  "hrsh7th/cmp-nvim-lua",
   "hrsh7th/cmp-nvim-lsp",
   "hrsh7th/cmp-path",
   "hrsh7th/cmp-buffer",
@@ -66,6 +67,7 @@ M.config = function()
     sources = {
       { name = "buffer" },
       { name = "path" },
+      { name = "nvim_lua" },
       { name = "nvim_lsp" },
       { name = "luasnip" },
     },
