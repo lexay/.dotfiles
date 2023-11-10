@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+MAIN_DB_DIR="$HOME/.var/app/io.freetubeapp.FreeTube/config/FreeTube"
+BACKUP_DB_DIR="$HOME/.dotfiles/freetube/.var/app/io.freetubeapp.FreeTube/config/FreeTube"
+
+MAIN_DB="$MAIN_DB_DIR/profiles.db"
+BACKUP_DB="$BACKUP_DB_DIR/profiles.db"
+
+if [[ ! -e "$BACKUP_DB" ]] || [[ $(diff -q "$MAIN_DB" "$BACKUP_DB") -eq 1 ]]; then
+  cp --update="older" "$MAIN_DB" -t "$BACKUP_DB_DIR"
+  gpg --encrypt --recipient="$USER" --yes --quiet "$BACKUP_DB"
+  git add "$BACKUP_DB_DIR/profiles.db.gpg"
+  exit 0
+else
+  exit 1
+fi
