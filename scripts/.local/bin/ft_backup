@@ -10,7 +10,7 @@ BACKUP_DB_DIR="$HOME/.dotfiles/freetube/.var/app/io.freetubeapp.FreeTube/config/
 MAIN_DB="$MAIN_DB_DIR/profiles.db"
 BACKUP_DB="$BACKUP_DB_DIR/profiles.db"
 
-if [[ ! -e "$BACKUP_DB" ]] || [[ $(diff -q "$MAIN_DB" "$BACKUP_DB"; echo "$?") -eq 1 ]]; then
+if [[ ! -e "$BACKUP_DB" ]] || [[ $(diff -q "$MAIN_DB" "$BACKUP_DB" >/dev/null; echo "$?") -eq 1 ]]; then
   cp --update="older" "$MAIN_DB" -t "$BACKUP_DB_DIR"
   gpg --encrypt --recipient="$USER" --yes --quiet "$BACKUP_DB"
   git -C "$HOME/.dotfiles" add "$BACKUP_DB_DIR/profiles.db.gpg"
