@@ -4,21 +4,23 @@ HISTSIZE=10000
 SAVEHIST=10000
 
 # Options
-setopt globdots
-setopt appendhistory
-setopt nobeep
-setopt correct
-setopt extendedglob
-setopt histignorealldups
-setopt histignorespace
-setopt histfindnodups
-setopt histsavenodups
-setopt nocheckjobs
-setopt nomatch
-setopt nocaseglob
-setopt notify
-setopt numericglobsort
-setopt prompt_subst
+setopt GLOB_DOTS
+setopt APPEND_HISTORY
+setopt NO_BEEP
+setopt CORRECT
+setopt EXTENDED_GLOB
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_FIND_NO_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt NO_CHECK_JOBS
+setopt NOMATCH
+setopt NO_CASE_GLOB
+setopt NOTIFY
+setopt NUMERIC_GLOB_SORT
+setopt PROMPT_SUBST
 
 # Completions
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
