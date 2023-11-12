@@ -11,6 +11,8 @@ setopt correct
 setopt extendedglob
 setopt histignorealldups
 setopt histignorespace
+setopt histfindnodups
+setopt histsavenodups
 setopt nocheckjobs
 setopt nomatch
 setopt nocaseglob
