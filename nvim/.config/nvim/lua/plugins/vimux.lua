@@ -21,7 +21,7 @@ M.config = function()
   function vimux_run(intpr)
     intpr = intpr or check_intpr()
     local bufname = vim.api.nvim_buf_get_name(0)
-    local command = string.format("clear; %s %s", intpr, bufname)
+    local command = string.format(" clear; %s %s", intpr, bufname)
     vim.fn.VimuxRunCommand(command)
   end
 
