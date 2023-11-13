@@ -66,5 +66,3 @@ o.termguicolors = true
 o.background = "dark"
 
 vim.cmd([[colorscheme habamax]])
-vim.g.netrw_keepdir = 0
-vim.g.netrw_liststyle = 3
