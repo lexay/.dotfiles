@@ -108,7 +108,7 @@ keymap("n", "<leader>a", ":cd %:p:h<cr>:pwd<cr>")
 keymap({ "c", "i" }, "<a-r>", "<c-^>")
 keymap({ "n" }, "<a-r>", "a<c-^><escape>")
 -- Open Netrw explorer
-keymap("n", "<leader>e", ":Explore<cr>")
+keymap("n", "<leader>e", ":Lexplore<cr>")
 -- Undo breaks
 keymap("i", ",", ",<c-g>u")
 keymap("i", ".", ".<c-g>u")
