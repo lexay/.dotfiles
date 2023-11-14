@@ -13,15 +13,6 @@ keymap("n", "<leader>b", ":bdelete<cr>", { silent = true })
 keymap("n", "<leader>B", ":%bdelete<cr>", { silent = true })
 
 -- Moving
--- Move in command/search mode
--- By one character
-keymap("c", "<c-l>", "<right>")
-keymap("c", "<c-h>", "<left>")
-keymap("c", "<c-j>", "<down>")
-keymap("c", "<c-k>", "<up>")
--- By one word with
-keymap("c", "<a-l>", "<s-right>")
-keymap("c", "<a-h>", "<s-left>")
 -- Move in normal mode
 -- Half window up/down with cursor staying in the middle
 keymap("n", "<c-d>", "<c-d>zz")
