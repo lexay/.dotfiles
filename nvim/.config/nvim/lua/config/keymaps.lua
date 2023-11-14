@@ -84,9 +84,8 @@ keymap("n", "<leader>T", ":tabonly<cr>", { silent = true })
 keymap("n", "<leader>t", ":tabclose<cr>", { silent = true })
 
 -- Netrw
--- Unmap vim-tmux-navigator keys in Netrw
---keymap("n", "<c-r>", "<plug>NetrwRefresh")
-keymap("n", "<c-e>", "<plug>NetrwEditHide")
+keymap("n", "<leader>dd", ":Lexplore %:p:h<cr>")
+keymap("n", "<leader>dw", ":Lexplore<cr>")
 
 -- Other
 -- Copy / paste from system clipboard
@@ -107,8 +106,6 @@ keymap("n", "<leader>a", ":cd %:p:h<cr>:pwd<cr>")
 -- Better keyboard switch combo
 keymap({ "c", "i" }, "<a-r>", "<c-^>")
 keymap({ "n" }, "<a-r>", "a<c-^><escape>")
--- Open Netrw explorer
-keymap("n", "<leader>e", ":Lexplore<cr>")
 -- Undo breaks
 keymap("i", ",", ",<c-g>u")
 keymap("i", ".", ".<c-g>u")
