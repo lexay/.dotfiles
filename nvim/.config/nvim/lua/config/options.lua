@@ -1,6 +1,6 @@
 local o = vim.opt
 
-vim.o.modelines = 0
+o.modelines = 0
 
 o.expandtab = true
 o.smartindent = true
@@ -14,7 +14,8 @@ o.backup = false
 o.writebackup = false
 
 o.history = 50
-o.cmdheight = 2
+o.cmdheight = 1
+o.cmdwinheight = 1
 o.updatetime = 250
 o.lazyredraw = true
 o.clipboard = "unnamed"
@@ -57,7 +58,7 @@ o.ignorecase = true
 o.smartcase = true
 o.wrapscan = false
 o.syntax = "on"
-o.shortmess:append("c")
+o.shortmess:append("cI")
 o.completeopt = "menuone,noselect"
 o.signcolumn = "yes"
 o.iskeyword:append("-,&")

@@ -130,3 +130,7 @@ keymap("n", "<c-p>", "<cmd>cprevious<cr>")
 -- Ruby docs
 keymap("n", "<leader>frbh", utils.show_ri)
 keymap("n", "<leader>frbg", utils.find_ri)
+-- Use cmd/search window instead
+keymap("n", ":", "q:")
+keymap("n", "/", "q/")
+keymap("n", "?", "q?")
