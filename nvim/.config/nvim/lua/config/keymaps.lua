@@ -75,8 +75,8 @@ keymap("n", "<leader>T", ":tabonly<cr>", { silent = true })
 keymap("n", "<leader>t", ":tabclose<cr>", { silent = true })
 
 -- Netrw
-keymap("n", "<leader>dd", ":Lexplore %:p:h<cr>")
-keymap("n", "<leader>dw", ":Lexplore<cr>")
+keymap("n", "<leader>da", ":Lexplore %:p:h<cr>")
+keymap("n", "<leader>dd", ":Lexplore<cr>")
 
 -- Other
 -- Copy / paste from system clipboard
