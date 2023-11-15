@@ -6,3 +6,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 vim.api.nvim_create_autocmd("CmdwinEnter", {
   command = "startinsert",
 })
+vim.api.nvim_create_autocmd("CmdwinEnter", {
+  command = [[lua vim.api.nvim_buf_set_keymap(0, "n", "<escape>", "<cmd>close<cr>", {})]],
+})
