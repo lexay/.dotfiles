@@ -29,11 +29,11 @@ keymap("n", "g#", "g#zz")
 
 -- Substitute in
 -- Whole file
-keymap("n", "<leader>si", ":%s///gc<left><left><left><left>")
+keymap("n", "<leader>si", "q:%s///gc<left><left><left><left>")
 -- Whole file matching selected <cword>
-keymap("v", "<leader>sw", [["cy:%s/<c-r>c//gc<left><left><left>]])
+keymap("v", "<leader>sw", [["cyq:%s/<c-r>c//gc<left><left><left>]])
 -- Selected block
-keymap("v", "<leader>si", ":s///gc<left><left><left><left>")
+keymap("v", "<leader>si", "q:s///gc<left><left><left><left>")
 
 -- Highlighting
 -- Highlight last inserted text
