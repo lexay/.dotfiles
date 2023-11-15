@@ -1,6 +1,6 @@
-local o = vim.opt
+vim.go.modelines = 0
 
-o.modelines = 0
+local o = vim.opt
 
 o.expandtab = true
 o.smartindent = true
