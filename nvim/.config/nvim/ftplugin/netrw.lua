@@ -25,7 +25,7 @@ vim.api.nvim_buf_set_keymap(0, "n", "fd", "D", {})
 vim.api.nvim_buf_set_keymap(0, "n", "fr", "R", {})
 vim.api.nvim_buf_set_keymap(0, "n", "fc", "mc", {})
 -- Refresh file list in the current `netrw` buffer, countering changes not being shown in the working dir
-vim.api.nvim_buf_set_keymap(0, "n", "fx", "mm<c-l>", {})
+vim.api.nvim_buf_set_keymap(0, "n", "fx", "mm<plug>NetrwRefresh", {})
 vim.api.nvim_buf_set_keymap(0, "n", "f;", "mx", {})
 
 -- Better bookmarks

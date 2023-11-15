@@ -134,3 +134,5 @@ keymap("n", "<leader>frbg", utils.find_ri)
 keymap("n", ":", "q:")
 keymap("n", "/", "q/")
 keymap("n", "?", "q?")
+-- Dont block vim_tmux_navigator's <c-l> with NetrwRefresh
+keymap("n", "<c-r>", "<plug>NetrwRefresh")
