@@ -135,4 +135,4 @@ keymap("n", ":", "q:")
 keymap("n", "/", "q/")
 keymap("n", "?", "q?")
 -- Dont block vim_tmux_navigator's <c-l> with NetrwRefresh
-keymap("n", "<c-r>", "<plug>NetrwRefresh")
+keymap("n", "<leader>R", "<plug>NetrwRefresh")
