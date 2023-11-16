@@ -3,6 +3,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = { "*.env" },
   command = "lua vim.bo.undofile = false",
 })
+-- Drop in insert mode immideatelly when in cmd/search window
 vim.api.nvim_create_autocmd("CmdwinEnter", {
   command = "startinsert",
 })
