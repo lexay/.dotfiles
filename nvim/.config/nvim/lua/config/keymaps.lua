@@ -8,9 +8,9 @@ utils = require("config.utils")
 -- Move between buffers opened recently
 keymap("n", "<leader><leader>", "<C-^>")
 -- Close current buffer
-keymap("n", "<leader>b", ":bdelete<cr>", { silent = true })
+keymap("n", "<leader>b", "<cmd>bdelete<cr>", { silent = true })
 -- Close all buffers
-keymap("n", "<leader>B", ":%bdelete<cr>", { silent = true })
+keymap("n", "<leader>B", "<cmd>%bdelete<cr>", { silent = true })
 
 -- Moving
 -- Move in normal mode
@@ -41,42 +41,42 @@ keymap("n", "gV", "`[v`]")
 
 -- Windows
 -- Open vertical split
-keymap("n", [[<leader>\]], ":vsplit<cr>")
+keymap("n", [[<leader>\]], "<cmd>vsplit<cr>")
 -- Open horizontal split
-keymap("n", "<leader>-", ":split<cr>")
+keymap("n", "<leader>-", "<cmd>split<cr>")
 -- Scale window size to max width / height / to normal
-keymap("n", "<leader>)", ":vertical resize<cr>")
-keymap("n", "<leader>_", ":resize<cr>")
+keymap("n", "<leader>)", "<cmd>vertical resize<cr>")
+keymap("n", "<leader>_", "<cmd>resize<cr>")
 keymap("n", "<leader>0", "<c-w>=<space><cr>")
 -- Resize window width
-keymap("n", "(", ":vertical resize -10<cr>")
-keymap("n", ")", ":vertical resize +10<cr>")
+keymap("n", "(", "<cmd>vertical resize -10<cr>")
+keymap("n", ")", "<cmd>vertical resize +10<cr>")
 -- Resize window height
-keymap("n", "-", ":resize -10<cr>")
-keymap("n", "=", ":resize +10<cr>")
+keymap("n", "-", "<cmd>resize -10<cr>")
+keymap("n", "=", "<cmd>resize +10<cr>")
 -- Swap window to left / right / up / down
 keymap("n", "<a-h>", "<c-w>H<cr>")
 keymap("n", "<a-l>", "<c-w>L<cr>")
 keymap("n", "<a-k>", "<c-w>K<cr>")
 keymap("n", "<a-j>", "<c-w>J<cr>")
 -- Close current window
-keymap("n", "<leader>w", ":close<cr>")
+keymap("n", "<leader>w", "<cmd>close<cr>")
 -- Close all windows except current
-keymap("n", "<leader>W", ":only<cr>")
+keymap("n", "<leader>W", "<cmd>only<cr>")
 
 -- Tabs
 -- Open $MYVIMRC in new tab
-keymap("n", "<leader>vrc", ":tabnew $MYVIMRC<cr> :tcd %:p:h<cr>:pwd<cr>")
+keymap("n", "<leader>vrc", "<cmd>tabnew $MYVIMRC<cr><cmd>tcd %:p:h<cr><cmd>pwd<cr>")
 -- Switch tabs
-keymap("n", "<a-,>", ":tabprevious<cr>", { silent = true })
-keymap("n", "<a-.>", ":tabnext<cr>", { silent = true })
+keymap("n", "<a-,>", "<cmd>tabprevious<cr>", { silent = true })
+keymap("n", "<a-.>", "<cmd>tabnext<cr>", { silent = true })
 -- Close all tabs except focused
-keymap("n", "<leader>T", ":tabonly<cr>", { silent = true })
-keymap("n", "<leader>t", ":tabclose<cr>", { silent = true })
+keymap("n", "<leader>T", "<cmd>tabonly<cr>", { silent = true })
+keymap("n", "<leader>t", "<cmd>tabclose<cr>", { silent = true })
 
 -- Netrw
-keymap("n", "<leader>da", ":Lexplore %:p:h<cr>")
-keymap("n", "<leader>dd", ":Lexplore<cr>")
+keymap("n", "<leader>da", "<cmd>Lexplore %:p:h<cr>")
+keymap("n", "<leader>dd", "<cmd>Lexplore<cr>")
 
 -- Other
 -- Copy / paste from system clipboard
@@ -85,15 +85,15 @@ keymap("v", "<leader>y", [["+y]])
 keymap("n", "<leader>p", [["+p]])
 keymap("v", "<leader>P", [["+P]])
 -- Close windows faster
-keymap("n", "<leader>s", ":x<cr>")
-keymap("n", "<leader>q", ":q!<cr>")
-keymap("n", "<leader>Q", ":qa<cr>")
+keymap("n", "<leader>s", "<cmd>x<cr>")
+keymap("n", "<leader>q", "<cmd>q!<cr>")
+keymap("n", "<leader>Q", "<cmd>qa<cr>")
 -- Yank to EOL
 keymap("n", "Y", "y$")
 -- Join lines and jump to cursor's previous position
 keymap("n", "J", "mzJ`z")
 -- Change working directory
-keymap("n", "<leader>a", ":cd %:p:h<cr>:pwd<cr>")
+keymap("n", "<leader>a", "<cmd>cd %:p:h<cr><cmd>pwd<cr>")
 -- Better keyboard switch combo
 keymap({ "c", "i" }, "<a-r>", "<c-^>")
 keymap({ "n" }, "<a-r>", "a<c-^><escape>")
@@ -120,10 +120,10 @@ keymap("v", "<", "<gv")
 keymap("v", "J", [[:m '>+1<cr>gv=gv]])
 keymap("v", "K", [[:m '<-2<cr>gv=gv]])
 -- Choose ours/theirs diffget
-keymap("n", "gh", [[:diffget /2<cr>]])
-keymap("n", "gl", [[:diffget /3<cr>]])
+keymap("n", "gh", [[<cmd>diffget /2<cr>]])
+keymap("n", "gl", [[<cmd>diffget /3<cr>]])
 -- Inspect for syntax tree objects
-keymap("n", "<leader>k", ":Inspect<cr>")
+keymap("n", "<leader>k", "<cmd>Inspect<cr>")
 -- Cnext, cprevious
 keymap("n", "<c-n>", "<cmd>cnext<cr>")
 keymap("n", "<c-p>", "<cmd>cprevious<cr>")

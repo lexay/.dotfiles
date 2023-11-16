@@ -34,7 +34,7 @@ vim.api.nvim_buf_set_keymap(0, "n", "<s-tab>", "mF", {})
 vim.api.nvim_buf_set_keymap(0, "n", "<leader><tab>", "mu", {})
 
 -- Create file, write and switch back to netrw
-vim.api.nvim_buf_set_keymap(0, "n", "ff", "%:w<cr><c-w><c-p>", {})
+vim.api.nvim_buf_set_keymap(0, "n", "ff", "%<cmd>w<cr><c-w><c-p>", {})
 vim.api.nvim_buf_set_keymap(0, "n", "fd", "D", {})
 vim.api.nvim_buf_set_keymap(0, "n", "fr", "R", {})
 vim.api.nvim_buf_set_keymap(0, "n", "fc", "mc", {})
