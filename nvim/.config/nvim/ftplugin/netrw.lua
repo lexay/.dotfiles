@@ -4,6 +4,9 @@
 -- Hide banner
 vim.g.netrw_banner = 0
 
+-- Use `echoerr` for showing errors
+vim.g.netrw_use_errorwindow = 0
+
 -- Allow moving files with netrw
 vim.g.netrw_keepdir = 0
 
