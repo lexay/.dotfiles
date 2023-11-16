@@ -12,7 +12,8 @@ vim.api.nvim_buf_set_keymap(0, "n", "H", "u", {})
 vim.api.nvim_buf_set_keymap(0, "n", "l", "<cr>", {})
 vim.api.nvim_buf_set_keymap(0, "n", "L", "<cr><cmd>Lexplore<cr>", {})
 vim.api.nvim_buf_set_keymap(0, "n", ".", "gh", {})
-vim.api.nvim_buf_set_keymap(0, "n", "<leader>dd", "<cmd>Lexplore<cr>", {})
+-- Close netrw with <escape> like all auxiliary buffers
+vim.api.nvim_buf_set_keymap(0, "n", "<escape>", "<cmd>close<cr>", {})
 
 -- Better marks
 vim.api.nvim_buf_set_keymap(0, "n", "<tab>", "mf", {})
