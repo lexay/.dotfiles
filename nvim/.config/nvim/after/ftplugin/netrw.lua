@@ -32,27 +32,35 @@ vim.api.nvim_buf_set_keymap(0, "n", "<tab>", "mf", {})
 vim.api.nvim_buf_set_keymap(0, "n", "<s-tab>", "mF", {})
 -- Unmark all marked files
 vim.api.nvim_buf_set_keymap(0, "n", "<leader><tab>", "mu", {})
+-- List marked files
+vim.api.nvim_buf_set_keymap(0, "n", "fl", [[<cmd>echo join(netrw#Expose("netrwmarkfilelist"), "\n")<cr>]], {})
+-- Copy marked files
+vim.api.nvim_buf_set_keymap(0, "n", "fc", "mc", {})
+-- Move marked files and refresh netrw current buffer
+vim.api.nvim_buf_set_keymap(0, "n", "fx", "mm<plug>NetrwRefresh", {})
+-- Move files from marked list to buffer list
+vim.api.nvim_buf_set_keymap(0, "n", "fb", "cb", {})
+-- Show target directory using echo (useful when the banner is hidden)
+vim.api.nvim_buf_set_keymap(0, "n", "fq", [[<cmd>echo 'Target: ' . netrw#Expose("netrwmftgt")<cr>]], {})
+-- Place a target on a directory for consecutive copy/move command and show that directory name as target
+vim.api.nvim_buf_set_keymap(0, "n", "ft", "mtfq", {})
 
 -- Create file, write and switch back to netrw
 vim.api.nvim_buf_set_keymap(0, "n", "ff", "%<cmd>w<cr><c-w><c-p>", {})
+-- Delete file/marked files and directory/empty directories
 vim.api.nvim_buf_set_keymap(0, "n", "fd", "D", {})
+-- Rename file/marked files/directory
 vim.api.nvim_buf_set_keymap(0, "n", "fr", "R", {})
-vim.api.nvim_buf_set_keymap(0, "n", "fc", "mc", {})
--- Refresh file list in the current `netrw` buffer, countering changes not being shown in the working dir
-vim.api.nvim_buf_set_keymap(0, "n", "fx", "mm<plug>NetrwRefresh", {})
+-- Execute external shell command on marked files
 vim.api.nvim_buf_set_keymap(0, "n", "f;", "mx", {})
 
 -- Better bookmarks
+-- Create bookmark
 vim.api.nvim_buf_set_keymap(0, "n", "bb", "mb", {})
+-- Delete created bookmark
 vim.api.nvim_buf_set_keymap(0, "n", "bd", "mB", {})
+-- Go to bookmark
 vim.api.nvim_buf_set_keymap(0, "n", "bl", "gb", {})
-
--- List marked files
-vim.api.nvim_buf_set_keymap(0, "n", "fl", [[<cmd>echo join(netrw#Expose("netrwmarkfilelist"), "\n")<cr>]], {})
-
--- Show target directory using echo if the banner is hidden
-vim.api.nvim_buf_set_keymap(0, "n", "fq", [[<cmd>echo 'Target: ' . netrw#Expose("netrwmftgt")<cr>]], {})
-vim.api.nvim_buf_set_keymap(0, "n", "ft", "mtfq", {})
 
 -- Highlight marked files
 vim.cmd([[hi! link netrwMarkFile Search]])
