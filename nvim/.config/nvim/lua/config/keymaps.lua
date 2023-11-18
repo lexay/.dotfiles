@@ -79,11 +79,10 @@ keymap("n", "<leader>da", "<cmd>Lexplore %:p:h<cr>")
 keymap("n", "<leader>dd", "<cmd>Lexplore<cr>")
 
 -- Other
--- Copy / paste from system clipboard
-keymap("n", "<leader>y", [["+y]])
-keymap("v", "<leader>y", [["+y]])
-keymap("n", "<leader>p", [["+p]])
-keymap("v", "<leader>P", [["+P]])
+-- Copy/paste from system clipboard
+keymap("", "<leader>y", [["+y]])
+keymap("", "<leader>p", [["+p]])
+keymap("", "<leader>P", [["+P]])
 -- Close windows faster
 keymap("n", "<leader>s", "<cmd>x<cr>")
 keymap("n", "<leader>q", "<cmd>q!<cr>")
@@ -112,8 +111,6 @@ keymap("n", "v$", "v$<left>")
 keymap({ "n" }, "`", "<nop>")
 -- Interferes with tmux
 keymap("n", "<c-z>", "<nop>")
--- Preserve copied
-keymap("x", "<leader>p", [["_dP]])
 -- Move text
 keymap("v", ">", ">gv")
 keymap("v", "<", "<gv")
