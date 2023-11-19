@@ -510,6 +510,9 @@ key_bindings:
   #- { key: Add,      mods: Control,       action: IncreaseFontSize }
   #- { key: Subtract, mods: Control,       action: DecreaseFontSize }
   #- { key: Minus,    mods: Control,       action: DecreaseFontSize }
+  #
+  #- { key: Equals,   mods: Control,       action: None }
+  #- { key: Minus,    mods: Control,       action: None }
 
   # (Windows only)
   #- { key: Return,   mods: Alt,           action: ToggleFullscreen }
@@ -533,8 +536,8 @@ key_bindings:
   #- { key: Copy,                     action: Copy                             }
   #- { key: L,         mods: Control, action: ClearLogNotice                   }
   #- { key: L,         mods: Control, chars: "\x0c"                            }
-  - { key: K,    mods: Control|Alt,   action: ScrollPageUp,   mode: ~Alt       }
-  - { key: J,  mods: Control|Alt,   action: ScrollPageDown, mode: ~Alt       }
+  - { key: K,    mods: Control|Alt|Shift,   action: ScrollPageUp,   mode: ~Alt       }
+  - { key: J,  mods: Control|Alt|Shift,   action: ScrollPageDown, mode: ~Alt       }
   #- { key: Home,      mods: Shift,   action: ScrollToTop,    mode: ~Alt       }
   #- { key: End,       mods: Shift,   action: ScrollToBottom, mode: ~Alt       }
 
