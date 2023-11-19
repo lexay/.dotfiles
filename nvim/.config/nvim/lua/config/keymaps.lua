@@ -11,6 +11,9 @@ keymap("n", "<leader><leader>", "<C-^>")
 keymap("n", "<leader>b", "<cmd>bdelete<cr>", { silent = true })
 -- Close all buffers
 keymap("n", "<leader>B", "<cmd>%bdelete<cr>", { silent = true })
+-- Switch to previous/next buffer
+keymap("n", "<a-k>", "<cmd>bprevious<cr>")
+keymap("n", "<a-j>", "<cmd>bnext<cr>")
 
 -- Moving
 -- Move in normal mode
@@ -45,20 +48,20 @@ keymap("n", [[<leader>\]], "<cmd>vsplit<cr>")
 -- Open horizontal split
 keymap("n", "<leader>-", "<cmd>split<cr>")
 -- Scale window size to max width / height / to normal
-keymap("n", "<leader>)", "<cmd>vertical resize<cr>")
+keymap("n", "<leader>=", "<cmd>vertical resize<cr>")
 keymap("n", "<leader>_", "<cmd>resize<cr>")
 keymap("n", "<leader>0", "<c-w>=<space><cr>")
 -- Resize window width
-keymap("n", "(", "<cmd>vertical resize -10<cr>")
-keymap("n", ")", "<cmd>vertical resize +10<cr>")
+keymap("n", "-", "<c-w>>")
+keymap("n", "=", "<c-w><")
 -- Resize window height
-keymap("n", "-", "<cmd>resize -10<cr>")
-keymap("n", "=", "<cmd>resize +10<cr>")
--- Swap window to left / right / up / down
-keymap("n", "<a-h>", "<c-w>H<cr>")
-keymap("n", "<a-l>", "<c-w>L<cr>")
-keymap("n", "<a-k>", "<c-w>K<cr>")
-keymap("n", "<a-j>", "<c-w>J<cr>")
+keymap("n", "_", "<c-w>-")
+keymap("n", "+", "<c-w>+")
+-- Swap window to left / right / previous / next
+keymap("n", "]", "<c-w>L<cr>")
+keymap("n", "[", "<c-w>H<cr>")
+keymap("n", "}", "<c-w>J<cr>")
+keymap("n", "{", "<c-w>K<cr>")
 -- Close current window
 keymap("n", "<leader>w", "<cmd>close<cr>")
 -- Close all windows except current
@@ -68,8 +71,8 @@ keymap("n", "<leader>W", "<cmd>only<cr>")
 -- Open $MYVIMRC in new tab
 keymap("n", "<leader>vrc", "<cmd>tabnew $MYVIMRC<cr><cmd>tcd %:p:h<cr><cmd>pwd<cr>")
 -- Switch tabs
-keymap("n", "<a-,>", "<cmd>tabprevious<cr>", { silent = true })
-keymap("n", "<a-.>", "<cmd>tabnext<cr>", { silent = true })
+keymap("n", "<a-h>", "<cmd>tabprevious<cr>", { silent = true })
+keymap("n", "<a-l>", "<cmd>tabnext<cr>", { silent = true })
 -- Close all tabs except focused
 keymap("n", "<leader>T", "<cmd>tabonly<cr>", { silent = true })
 keymap("n", "<leader>t", "<cmd>tabclose<cr>", { silent = true })
@@ -121,9 +124,9 @@ keymap("n", "gh", [[<cmd>diffget /2<cr>]])
 keymap("n", "gl", [[<cmd>diffget /3<cr>]])
 -- Inspect for syntax tree objects
 keymap("n", "<leader>k", "<cmd>Inspect<cr>")
--- Cnext, cprevious
-keymap("n", "<c-n>", "<cmd>cnext<cr>")
-keymap("n", "<c-p>", "<cmd>cprevious<cr>")
+-- Switch to previous/next quickfix entry
+keymap("n", "<a-n>", "<cmd>cnext<cr>")
+keymap("n", "<a-p>", "<cmd>cprevious<cr>")
 -- Ruby docs
 keymap("n", "<leader>frbh", utils.show_ri)
 keymap("n", "<leader>frbg", utils.find_ri)
@@ -133,3 +136,6 @@ keymap("n", "/", "q/")
 keymap("n", "?", "q?")
 -- Dont block vim_tmux_navigator's <c-l> with NetrwRefresh
 keymap("n", "<leader>R", "<plug>NetrwRefresh")
+-- Go to the start/end of the text
+keymap("n", "H", "^")
+keymap("n", "L", "$")

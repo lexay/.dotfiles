@@ -67,3 +67,6 @@ o.termguicolors = true
 o.background = "dark"
 
 vim.cmd([[colorscheme habamax]])
+
+-- Disable presetting keymaps
+vim.g.no_plugin_maps = 1
