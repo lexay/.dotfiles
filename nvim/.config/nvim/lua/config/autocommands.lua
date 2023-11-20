@@ -27,3 +27,7 @@ vim.api.nvim_create_autocmd("CmdwinEnter", {
 vim.api.nvim_create_autocmd("CmdwinLeave", {
   command = [[lua require('cmp').setup({ enabled = true })]],
 })
+-- Close terminal with <escape> like all auxiliary windows
+vim.api.nvim_create_autocmd("TermOpen", {
+  command = [[lua vim.api.nvim_buf_set_keymap(0, "n", "<escape>", "<cmd>close<cr>", {})]],
+})
