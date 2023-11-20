@@ -11,6 +11,15 @@ vim.api.nvim_create_autocmd("CmdwinEnter", {
 vim.api.nvim_create_autocmd("CmdwinEnter", {
   command = [[lua vim.api.nvim_buf_set_keymap(0, "n", "<escape>", "<cmd>close<cr>", {})]],
 })
+-- Close floating windows with <escape> like all auxiliary buffers
+vim.api.nvim_create_autocmd("WinEnter", {
+  command = [[
+  lua
+  if vim.api.nvim_win_get_config(vim.api.nvim_get_current_win()).relative == "win" then
+    vim.api.nvim_buf_set_keymap(0, "n", "<escape>", "<cmd>close<cr>", {})
+  end
+  ]],
+})
 -- Disable cmp for <cmd> in command line window
 vim.api.nvim_create_autocmd("CmdwinEnter", {
   command = [[lua require('cmp').setup({ enabled = false })]],
