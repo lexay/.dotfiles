@@ -7,11 +7,11 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 vim.api.nvim_create_autocmd("CmdwinEnter", {
   command = "startinsert",
 })
--- Close cmd/search windo with <escape> like all auxiliary buffers
+-- Close cmd/search windo with <escape> like all auxiliary windows
 vim.api.nvim_create_autocmd("CmdwinEnter", {
   command = [[lua vim.api.nvim_buf_set_keymap(0, "n", "<escape>", "<cmd>close<cr>", {})]],
 })
--- Close floating windows with <escape> like all auxiliary buffers
+-- Close floating windows with <escape> like all auxiliary windows
 vim.api.nvim_create_autocmd("WinEnter", {
   command = [[
   lua

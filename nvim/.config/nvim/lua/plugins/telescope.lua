@@ -15,7 +15,7 @@ M.config = function()
       file_ignore_patterns = { ".git/", "node_modules/", "png" },
       mappings = {
         i = {
-          -- Close Telescope with <escape> like all auxiliary buffers
+          -- Close Telescope with <escape> like all auxiliary windows
           ["<esc>"] = require("telescope.actions").close,
           ["<C-j>"] = require("telescope.actions").move_selection_next,
           ["<C-k>"] = require("telescope.actions").move_selection_previous,
