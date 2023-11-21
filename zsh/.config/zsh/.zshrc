@@ -49,7 +49,6 @@ ZSH_HIGHLIGHT_STYLES[builtin]="fg=#af87af,bold,underline"
 # Light %? and dark green %~
 PROMPT="%(?.%B%F{#87af87}>.%B%F{#d7875f}>)"
 PROMPT+=" %F{#5f875f}%~%{$reset_color%} "
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#9e9e9e"
 autoload -U colors && colors
 
 
