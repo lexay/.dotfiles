@@ -47,8 +47,8 @@ ZSH_HIGHLIGHT_STYLES[alias]="fg=#af87af,bold,underline"
 ZSH_HIGHLIGHT_STYLES[builtin]="fg=#af87af,bold,underline"
 # User prompt
 # Light %? and dark green %~
-PROMPT="%(?.%B%F{#87af87}>.%B%F{#d7875f}>)"
-PROMPT+=" %F{#5f875f}%~%{$reset_color%} "
+PROMPT="%(?.%B%F{#87af87}>.%B%F{#d7875f}>)%f%b"
+PROMPT+=" %B%F{#5f875f}%~%f%b "
 autoload -U colors && colors
 
 
