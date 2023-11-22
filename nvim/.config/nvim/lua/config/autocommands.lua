@@ -31,7 +31,7 @@ vim.api.nvim_create_autocmd("CmdwinLeave", {
 vim.api.nvim_create_autocmd("TermOpen", {
   command = [[lua vim.api.nvim_buf_set_keymap(0, "n", "<escape>", "<cmd>close<cr>", {})]],
 })
--- Switch from insert to normal in terminal
+-- Switch from terminal to normal mode
 vim.api.nvim_create_autocmd("TermEnter", {
   command = [[lua vim.api.nvim_buf_set_keymap(0, "t", "<escape>", "<c-bslash><c-n>", {})]],
 })
