@@ -35,3 +35,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
 vim.api.nvim_create_autocmd("TermEnter", {
   command = [[lua vim.api.nvim_buf_set_keymap(0, "t", "<escape>", "<c-bslash><c-n>", {})]],
 })
+-- Autoresize windows on neovim's size change
+vim.api.nvim_create_autocmd("VimResized", {
+  command = "wincmd =",
+})
