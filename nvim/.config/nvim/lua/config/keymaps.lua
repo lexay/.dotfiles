@@ -52,16 +52,16 @@ keymap("n", "<leader>=", "<cmd>vertical resize<cr>")
 keymap("n", "<leader>_", "<cmd>resize<cr>")
 keymap("n", "<leader>0", "<c-w>=<space><cr>")
 -- Resize window width
-keymap("n", "-", "<c-w>>")
-keymap("n", "=", "<c-w><")
+keymap("n", "<a-0>", "<c-w>>")
+keymap("n", "<a-9>", "<c-w><")
 -- Resize window height
-keymap("n", "_", "<c-w>-")
-keymap("n", "+", "<c-w>+")
--- Swap window to left / right / previous / next
-keymap("n", "]", "<c-w>L<cr>")
-keymap("n", "[", "<c-w>H<cr>")
-keymap("n", "}", "<c-w>J<cr>")
-keymap("n", "{", "<c-w>K<cr>")
+keymap("n", "<a-->", "<c-w>-")
+keymap("n", "<a-=>", "<c-w>+")
+-- Swap window with next/previous/bottom/top
+keymap("n", "<a-]>", "<c-w>L<cr>")
+keymap("n", "<a-[>", "<c-w>H<cr>")
+keymap("n", "<a-}>", "<c-w>J<cr>")
+keymap("n", "<a-{>", "<c-w>K<cr>")
 -- Close current window
 keymap("n", "<leader>w", "<cmd>close<cr>")
 -- Close all windows except current
