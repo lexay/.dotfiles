@@ -87,9 +87,9 @@ keymap("", "<leader>y", [["+y]])
 keymap("", "<leader>p", [["+p]])
 keymap("", "<leader>P", [["+P]])
 -- Close windows faster
-keymap("n", "<leader>s", "<cmd>x<cr>")
-keymap("n", "<leader>q", "<cmd>q!<cr>")
-keymap("n", "<leader>Q", "<cmd>qa<cr>")
+keymap("n", "<leader>s", "<cmd>xit<cr>")
+keymap("n", "<leader>q", "<cmd>quitall<cr>")
+keymap("n", "<leader>Q", "<cmd>quitall!<cr>")
 -- Yank to EOL
 keymap("n", "Y", "y$")
 -- Join lines and jump to cursor's previous position
