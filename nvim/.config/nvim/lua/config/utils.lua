@@ -45,7 +45,7 @@ M.buff_only = function()
 
   -- Account for current buffer
   local buffs_deleted_count = buffs_listed_count - 1
-  print(buffs_deleted_count, (buffs_deleted_count == 1) and "buffer deleted" or "buffers deleted")
+  print(buffs_deleted_count, (buffs_deleted_count == 1) and "buffer" or "buffers", "deleted")
 end
 
 return M
