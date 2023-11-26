@@ -22,19 +22,30 @@ end
 M.buff_only = function()
   local all_buffs = vim.api.nvim_list_bufs()
   local current_buff = vim.api.nvim_get_current_buf()
-  local buffs_count = table.getn(all_buffs)
+  local buffs_listed = {}
 
-  if buffs_count == 1 then
+  for _, i in ipairs(all_buffs) do
+    if vim.api.nvim_buf_is_loaded(i) and vim.api.nvim_buf_get_option(i, "buflisted") then
+      table.insert(buffs_listed, i)
+    end
+  end
+
+  local buffs_listed_count = table.getn(buffs_listed)
+
+  if buffs_listed_count == 1 then
     print("Already only buffer")
     return
   end
 
-  for _, i in ipairs(all_buffs) do
+  for _, i in ipairs(buffs_listed) do
     if i ~= current_buff then
       vim.api.nvim_buf_delete(i, {})
     end
   end
-  print(buffs_count - 1 .. " " .. "buffers deleted")
+
+  -- Account for current buffer
+  local buffs_deleted_count = buffs_listed_count - 1
+  print(buffs_deleted_count, (buffs_deleted_count == 1) and "buffer deleted" or "buffers deleted")
 end
 
 return M
