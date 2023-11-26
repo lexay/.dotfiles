@@ -19,4 +19,14 @@ M.find_ri = function()
   vim.cmd("tabnew term://ri --no-pager " .. input)
 end
 
+M.buff_only = function()
+  local all_buffs = vim.api.nvim_list_bufs()
+  local current_buff = vim.api.nvim_get_current_buf()
+  for _, i in ipairs(all_buffs) do
+    if i ~= current_buff then
+      vim.api.nvim_buf_delete(i, {})
+    end
+  end
+end
+
 return M

@@ -9,8 +9,8 @@ utils = require("config.utils")
 keymap("n", "<leader><leader>", "<C-^>")
 -- Close current buffer
 keymap("n", "<leader>b", "<cmd>bdelete<cr>", { silent = true })
--- Close all buffers
-keymap("n", "<leader>B", "<cmd>%bdelete<cr>", { silent = true })
+-- Close all buffers but current
+keymap("n", "<leader>B", utils.buff_only, { silent = true })
 -- Switch to previous/next buffer
 keymap("n", "<a-k>", "<cmd>bprevious<cr>")
 keymap("n", "<a-j>", "<cmd>bnext<cr>")
