@@ -30,7 +30,7 @@ o.ttimeoutlen = 200
 o.switchbuf = "useopen"
 
 o.undofile = true
-o.undodir = vim.env.HOME .. "/.vim/undodir"
+o.undodir = vim.env.HOME .. "/.local/share/nvim/undodir"
 
 o.fileencodings = "ucs-bom,utf-8,default,cp1251,latin1"
 
