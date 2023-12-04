@@ -48,7 +48,7 @@ keymap("n", [[<leader>\]], "<cmd>vsplit<cr>")
 -- Open horizontal split
 keymap("n", "<leader>-", "<cmd>split<cr>")
 -- Scale window size to max width / height / to normal
-keymap("n", "<leader>=", "<cmd>vertical resize<cr>")
+keymap("n", "<leader>)", "<cmd>vertical resize<cr>")
 keymap("n", "<leader>_", "<cmd>resize<cr>")
 keymap("n", "<leader>0", "<c-w>=<space><cr>")
 -- Resize window width
