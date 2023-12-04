@@ -48,4 +48,13 @@ M.buff_only = function()
   print(buffs_deleted_count, (buffs_deleted_count == 1) and "buffer" or "buffers", "deleted")
 end
 
+M.za = function()
+  local work_dir = vim.fn.expand("%:p:h")
+  vim.cmd([[!zoxide add]] .. " " .. work_dir)
+end
+
+M.zr = function()
+  local work_dir = vim.fn.expand("%:p:h")
+  vim.cmd([[!zoxide remove]] .. " " .. work_dir)
+end
 return M

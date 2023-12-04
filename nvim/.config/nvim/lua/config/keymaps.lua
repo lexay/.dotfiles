@@ -142,3 +142,7 @@ keymap("n", "L", "$")
 -- Checkout default keys
 -- Normal:
 -- va %
+-- Add/remove directory of current buffer to zoxide list
+keymap("n", "<leader>za", utils.za)
+keymap("n", "<leader>zr", utils.zr)
+keymap("n", "<leader>ze", "<cmd>tabnew term://zoxide edit<cr>")
