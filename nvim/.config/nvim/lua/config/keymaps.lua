@@ -139,3 +139,6 @@ keymap("n", "<leader>R", "<plug>NetrwRefresh")
 -- Go to the start/end of the text
 keymap("n", "H", "^")
 keymap("n", "L", "$")
+-- Checkout default keys
+-- Normal:
+-- va %
