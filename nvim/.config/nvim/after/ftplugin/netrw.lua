@@ -64,3 +64,6 @@ vim.api.nvim_buf_set_keymap(0, "n", "bl", "gb", {})
 
 -- Highlight marked files
 vim.cmd([[hi! link netrwMarkFile Search]])
+
+-- Using Telescope in a Netrw buffer creates new unecessary unnamed buffers
+vim.api.nvim_buf_set_keymap(0, "n", "<leader>ff", "<nop>", {})
