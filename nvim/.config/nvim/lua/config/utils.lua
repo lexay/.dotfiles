@@ -57,4 +57,27 @@ M.zr = function()
   local work_dir = vim.fn.expand("%:p:h")
   vim.cmd([[!zoxide remove]] .. " " .. work_dir)
 end
+
+M.find_files = function()
+  local buf_dir = vim.fn.expand("%:p:h")
+  local dir_list = vim.g.zoxide_list
+  local project_root
+
+  if dir_list then
+    local dir_list_sorted = table.move(dir_list, 1, #dir_list, 1, {})
+    table.sort(dir_list_sorted, function(a, b)
+      return #a < #b
+    end)
+
+    for _, i in ipairs(dir_list_sorted) do
+      if string.match(buf_dir:lower(), string.gsub(i:lower(), "-", "%%-")) then
+        project_root = i
+      end
+    end
+  else
+    project_root = buf_dir
+  end
+  print(project_root)
+  require("telescope.builtin").find_files({ cwd = project_root })
+end
 return M

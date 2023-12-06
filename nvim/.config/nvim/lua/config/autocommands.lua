@@ -39,3 +39,12 @@ vim.api.nvim_create_autocmd("TermEnter", {
 vim.api.nvim_create_autocmd("VimResized", {
   command = "wincmd =",
 })
+-- A short hack to follow and keep working directory for every buffer with g:netrw_keepdir=0
+-- except whats in the conditional
+vim.api.nvim_create_autocmd("BufWinEnter", {
+  callback = function()
+    if not string.match(vim.api.nvim_buf_get_name(0), "^fugitive") then
+      return vim.api.nvim_set_current_dir(vim.fn.expand("%:p:h"))
+    end
+  end,
+})
