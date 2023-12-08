@@ -68,8 +68,6 @@ keymap("n", "<leader>w", "<cmd>close<cr>")
 keymap("n", "<leader>W", "<cmd>only<cr>")
 
 -- Tabs
--- Open $MYVIMRC in new tab
-keymap("n", "<leader>vrc", "<cmd>tabnew $MYVIMRC<cr><cmd>tcd %:p:h<cr><cmd>pwd<cr>")
 -- Switch tabs
 keymap("n", "<a-h>", "<cmd>tabprevious<cr>", { silent = true })
 keymap("n", "<a-l>", "<cmd>tabnext<cr>", { silent = true })
@@ -78,7 +76,6 @@ keymap("n", "<leader>T", "<cmd>tabonly<cr>", { silent = true })
 keymap("n", "<leader>t", "<cmd>tabclose<cr>", { silent = true })
 
 -- Netrw
-keymap("n", "<leader>da", "<cmd>Lexplore %:p:h<cr>")
 keymap("n", "<leader>dd", "<cmd>Lexplore<cr>")
 
 -- Other
