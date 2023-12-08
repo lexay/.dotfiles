@@ -90,4 +90,15 @@ function M.live_grep()
   local project_root = M.cd_project_root()
   require("telescope.builtin").live_grep({ cwd = project_root })
 end
+
+function M.zoxide()
+  local all_buffs = vim.api.nvim_list_bufs()
+
+  for _, i in ipairs(all_buffs) do
+    if vim.api.nvim_buf_get_option(i, "buflisted") and vim.api.nvim_buf_get_name(i) == "" then
+      vim.api.nvim_buf_delete(i, {})
+    end
+  end
+  vim.cmd("Telescope zoxide")
+end
 return M
