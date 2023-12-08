@@ -3,7 +3,7 @@ local M = {}
 
 -- Show documentation on word under cursor in RubyDoc ri in a new tab
 -- until Telescope extension built / found
-M.show_ri = function()
+function M.show_ri()
   local cword = vim.fn.expand("<cword>")
   if cword == "" then
     return print("No word under cursor!")
@@ -11,7 +11,7 @@ M.show_ri = function()
   vim.cmd("tabnew term://ri --no-pager " .. cword)
 end
 
-M.find_ri = function()
+function M.find_ri()
   local input = vim.fn.input({ prompt = "Find in RubyDoc: " })
   if input == "" then
     return print("Input is empty!")
@@ -19,7 +19,7 @@ M.find_ri = function()
   vim.cmd("tabnew term://ri --no-pager " .. input)
 end
 
-M.buff_only = function()
+function M.buff_only()
   local all_buffs = vim.api.nvim_list_bufs()
   local current_buff = vim.api.nvim_get_current_buf()
   local buffs_listed = {}
@@ -48,12 +48,12 @@ M.buff_only = function()
   print(buffs_deleted_count, (buffs_deleted_count == 1) and "buffer" or "buffers", "deleted")
 end
 
-M.za = function()
+function M.za()
   local work_dir = vim.fn.expand("%:p:h")
   vim.cmd([[!zoxide add]] .. " " .. work_dir)
 end
 
-M.zr = function()
+function M.zr()
   local work_dir = vim.fn.expand("%:p:h")
   vim.cmd([[!zoxide remove]] .. " " .. work_dir)
 end
