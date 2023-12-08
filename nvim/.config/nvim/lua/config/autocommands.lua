@@ -40,11 +40,19 @@ vim.api.nvim_create_autocmd("VimResized", {
   command = "wincmd =",
 })
 -- A short hack to follow and keep working directory for every buffer with g:netrw_keepdir=0
--- except whats in the conditional
+-- except exclusions
 vim.api.nvim_create_autocmd("BufWinEnter", {
   callback = function()
-    if not string.match(vim.api.nvim_buf_get_name(0), "^fugitive") then
-      return vim.api.nvim_set_current_dir(vim.fn.expand("%:p:h"))
+    local name = vim.api.nvim_buf_get_name(0)
+    local ft = vim.bo.filetype
+    local exclusions = { "fugitive", "term", "netrw", "Command Line", "git" }
+
+    for _, i in ipairs(exclusions) do
+      if name:match(i) or ft:match(i) then
+        return
+      end
     end
+
+    return vim.api.nvim_set_current_dir(vim.fn.expand("%:p:h"))
   end,
 })
