@@ -58,9 +58,9 @@ function M.zr()
   vim.cmd([[!zoxide remove]] .. " " .. work_dir)
 end
 
-M.find_files = function()
+function M.cd_project_root()
   local buf_dir = vim.fn.expand("%:p:h")
-  local dir_list = vim.g.zoxide_list
+  local dir_list = _G.zoxide_list()
   local project_root
 
   if dir_list then
@@ -78,6 +78,16 @@ M.find_files = function()
     project_root = buf_dir
   end
   print(project_root)
+  return project_root
+end
+
+function M.find_files()
+  local project_root = M.cd_project_root()
   require("telescope.builtin").find_files({ cwd = project_root })
+end
+
+function M.live_grep()
+  local project_root = M.cd_project_root()
+  require("telescope.builtin").live_grep({ cwd = project_root })
 end
 return M
