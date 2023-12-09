@@ -1,8 +1,8 @@
 -- Custom functions
 local M = {}
 
--- Show documentation on word under cursor in RubyDoc ri in a new tab
--- until Telescope extension built / found
+-- Show RubyDoc documentation
+-- on word under cursor
 function M.show_ri()
   local cword = vim.fn.expand("<cword>")
   if cword == "" then
@@ -11,6 +11,7 @@ function M.show_ri()
   vim.cmd("tabnew term://ri --no-pager " .. cword)
 end
 
+-- with user prompt
 function M.find_ri()
   local input = vim.fn.input({ prompt = "Find in RubyDoc: " })
   if input == "" then
@@ -19,6 +20,7 @@ function M.find_ri()
   vim.cmd("tabnew term://ri --no-pager " .. input)
 end
 
+-- Close other buffers except current one
 function M.buff_only()
   local all_buffs = vim.api.nvim_list_bufs()
   local current_buff = vim.api.nvim_get_current_buf()
@@ -48,16 +50,19 @@ function M.buff_only()
   print(buffs_deleted_count, (buffs_deleted_count == 1) and "buffer" or "buffers", "deleted")
 end
 
+-- Add to zoxide list
 function M.za()
   local work_dir = vim.fn.expand("%:p:h")
   vim.cmd([[!zoxide add]] .. " " .. work_dir)
 end
 
+-- Remove from zoxide list
 function M.zr()
   local work_dir = vim.fn.expand("%:p:h")
   vim.cmd([[!zoxide remove]] .. " " .. work_dir)
 end
 
+-- Move to project root if it is know to zoxide
 function M.cd_project_root()
   local buf_dir = vim.fn.expand("%:p:h")
   local dir_list = _G.zoxide_list()
@@ -81,16 +86,19 @@ function M.cd_project_root()
   return project_root
 end
 
+-- Find files from project root
 function M.find_files()
   local project_root = M.cd_project_root()
   require("telescope.builtin").find_files({ cwd = project_root })
 end
 
+-- Live grep from project root
 function M.live_grep()
   local project_root = M.cd_project_root()
   require("telescope.builtin").live_grep({ cwd = project_root })
 end
 
+-- Delete empty buffers if any and call telescope-zoxide
 function M.zoxide()
   local all_buffs = vim.api.nvim_list_bufs()
 
@@ -100,5 +108,6 @@ function M.zoxide()
     end
   end
   vim.cmd("Telescope zoxide")
+  --require("telescope").extensions.zoxide.zoxide()
 end
 return M
