@@ -107,7 +107,6 @@ function M.zoxide()
       vim.api.nvim_buf_delete(i, {})
     end
   end
-  vim.cmd("Telescope zoxide")
-  --require("telescope").extensions.zoxide.zoxide()
+  require("telescope").extensions.zoxide.zi()
 end
 return M
