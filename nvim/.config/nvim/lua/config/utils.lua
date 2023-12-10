@@ -98,8 +98,8 @@ function M.live_grep()
   require("telescope.builtin").live_grep({ cwd = project_root })
 end
 
--- Delete empty buffers if any and call telescope-zoxide
-function M.zoxide()
+-- Delete empty buffers if any on Telescope buffers
+function M.buffers()
   local all_buffs = vim.api.nvim_list_bufs()
 
   for _, i in ipairs(all_buffs) do
@@ -107,6 +107,6 @@ function M.zoxide()
       vim.api.nvim_buf_delete(i, {})
     end
   end
-  require("telescope").extensions.zoxide.zi()
+  require("telescope.builtin").buffers()
 end
 return M
