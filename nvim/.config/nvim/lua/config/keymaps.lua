@@ -31,12 +31,10 @@ keymap("n", "g*", "g*zz")
 keymap("n", "g#", "g#zz")
 
 -- Substitute in
--- Whole file
-keymap("n", "<leader>si", "q:%s///gc<left><left><left><left>")
--- Whole file matching selected <cword>
-keymap("v", "<leader>sw", [["cyq:%s/<c-r>c//gc<left><left><left>]])
--- Selected block
-keymap("v", "<leader>si", "q:s///gc<left><left><left><left>")
+-- Normal
+keymap("n", "gr", "q:%s///gc<left><left><left><left>")
+-- Visual
+keymap("v", "gr", "q:s///gc<left><left><left><left>")
 
 -- Highlighting
 -- Highlight last inserted text
@@ -84,7 +82,8 @@ keymap("", "<leader>y", [["+y]])
 keymap("", "<leader>p", [["+p]])
 keymap("", "<leader>P", [["+P]])
 -- Close windows faster
-keymap("n", "<leader>s", "<cmd>xit<cr>")
+keymap("n", "<leader>s", "<cmd>update<cr>")
+keymap("n", "<leader>S", "<cmd>xit<cr>")
 keymap("n", "<leader>q", "<cmd>quitall<cr>")
 keymap("n", "<leader>Q", "<cmd>quitall!<cr>")
 -- Yank to EOL
