@@ -46,7 +46,9 @@ vim.api.nvim_buf_set_keymap(0, "n", "fq", [[<cmd>echo 'Target: ' . netrw#Expose(
 vim.api.nvim_buf_set_keymap(0, "n", "ft", "mtfq", {})
 
 -- Create file, write and switch back to netrw
-vim.api.nvim_buf_set_keymap(0, "n", "ff", "%<cmd>w<cr><c-w><c-p>", {})
+vim.api.nvim_buf_set_keymap(0, "n", "ff", "ft%<cmd>w<cr><c-w><c-p>", {})
+-- Create directory
+vim.api.nvim_buf_set_keymap(0, "n", "fF", "d", {})
 -- Delete file/marked files and directory/empty directories
 vim.api.nvim_buf_set_keymap(0, "n", "fd", "D", {})
 -- Rename file/marked files/directory
