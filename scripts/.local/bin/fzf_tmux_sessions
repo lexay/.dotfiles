@@ -1,39 +1,28 @@
 #!/usr/bin/env bash
 
-# FZF tmux-sessionizer script from Michael Paulson.
-# https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/scripts/tmux-sessionizer
-if [[ $# -eq 1 ]]; then
-  selected=$1
-else
-  selected=$(zoxide query -l | fzf --height=100)
-fi
+selected_path=$(zoxide query --interactive)
 
-if [[ -z $selected ]]; then
+if [[ -z $selected_path ]]; then
   exit 0
+else
+  zoxide add $selected_path
 fi
 
 # Name of the current session consists of:
-
-# destination directory
-# selected_name=$(basename "$selected" | tr . _)
-
-# parent of the destination directory + destination directory
-# selected_name=$(echo $selected | sed -E 's/^.+(\/\.?\w+\/\.?\w+)$/\1/')
-
 # 1 first letter of each directory (dots are underscores) to the destination directory + full name of the destination directory
-selected_name=$(echo $selected  | sed -E 's:^\/home\/[^/]+:~:; s:\.:_:g; s:([^~/_])[^/]+\/:\1\/:g;')
+session_name=$(echo $selected_path  | sed -E 's:^\/home\/[^/]+:~:; s:\.:_:g; s:([^~/_])[^/]+\/:\1\/:g;')
 
 tmux_running=$(pgrep tmux)
 
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-  tmux new-session -s $selected_name -c $selected
-elif ! tmux has-session -t=$selected_name 2> /dev/null; then
-  tmux new-session -d -s $selected_name -c $selected
+  tmux new-session -s $session_name -c $selected_path
+elif ! tmux has-session -t=$session_name 2> /dev/null; then
+  tmux new-session -d -s $session_name -c $selected_path
 fi
 
-tmux switch-client -t $selected_name
+tmux switch-client -t $session_name
 
-# If no current client
+# If detached, no current client
 if [[ $? -eq 1 ]]; then
-  tmux attach-session -t $selected_name
+  tmux attach-session -t $session_name
 fi
