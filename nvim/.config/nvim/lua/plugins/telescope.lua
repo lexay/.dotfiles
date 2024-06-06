@@ -2,7 +2,7 @@ local M = {
   "nvim-telescope/telescope.nvim",
 }
 
-M.tag = "0.1.4"
+M.branch = "0.1.x"
 
 M.config = function()
   require("telescope").setup({
