@@ -28,7 +28,7 @@ M.config = function()
   -- Keymaps
   keymap("n", "<leader>vr", "<cmd>lua vimux_run()<cr>")
   keymap("n", "<leader>vl", "<cmd>VimuxRunLastCommand<cr>")
-  keymap("n", "<leader>vx", "<cmd>VimuxCloseRunner<cr>")
+  keymap("n", "<leader>vc", "<cmd>VimuxCloseRunner<cr>")
   keymap("n", "<leader>vi", "<cmd>VimuxInspectRunner<cr>")
   keymap("n", "<leader>vp", "<cmd>VimuxPromptCommand<cr>")
   keymap("n", "<leader>vb", [[<cmd>lua vimux_run("bundle exec ruby")<cr>]])
