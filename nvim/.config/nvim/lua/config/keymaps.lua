@@ -32,9 +32,9 @@ keymap("n", "g#", "g#zz")
 
 -- Substitute in
 -- Normal
-keymap("n", "gr", "q:%s///gc<left><left><left><left>")
+keymap("n", "gR", "q:%s///gc<left><left><left><left>")
 -- Visual
-keymap("v", "gr", "q:s///gc<left><left><left><left>")
+keymap("v", "gR", "q:s///gc<left><left><left><left>")
 
 -- Highlighting
 -- Highlight last inserted text
@@ -142,3 +142,7 @@ keymap("n", "L", "$")
 keymap("n", "<leader>za", utils.za)
 keymap("n", "<leader>zr", utils.zr)
 keymap("n", "<leader>ze", "<cmd>tabnew term://zoxide edit<cr>")
+
+-- Close quickfix list
+keymap("n", "gx", "<cmd>cclose<cr>")
+keymap("n", "go", "<cmd>copen<cr>")
