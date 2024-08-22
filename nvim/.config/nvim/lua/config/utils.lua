@@ -65,24 +65,27 @@ end
 -- Move to project root if it is know to zoxide
 function M.cd_project_root()
   local buf_dir = vim.fn.expand("%:p:h")
-  local dir_list = _G.zoxide_list()
-  local project_root
+  local scored_dir_list = _G.zoxide_list()
 
-  if dir_list then
-    local dir_list_sorted = table.move(dir_list, 1, #dir_list, 1, {})
-    table.sort(dir_list_sorted, function(a, b)
-      return #a < #b
-    end)
-
-    for _, i in ipairs(dir_list_sorted) do
-      if string.match(buf_dir:lower(), string.gsub(i:lower(), "-", "%%-")) then
-        project_root = i
-      end
-    end
-  else
-    project_root = buf_dir
+  if scored_dir_list == nil then
+    return buf_dir
   end
-  print(project_root)
+
+  local dir_list = {}
+  for _i, dir in ipairs(scored_dir_list) do
+    table.insert(dir_list, dir:match("/.+"))
+  end
+
+  table.sort(dir_list, function(a, b)
+    return #a < #b
+  end)
+
+  local project_root
+  for _, dir in ipairs(dir_list) do
+    if string.match(buf_dir:lower(), dir:lower():gsub("-", "%%-")) then
+      project_root = dir
+    end
+  end
   return project_root
 end
 
