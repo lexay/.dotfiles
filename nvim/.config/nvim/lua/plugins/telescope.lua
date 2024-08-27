@@ -12,7 +12,7 @@ M.config = function()
         "--files",
         "--hidden",
       },
-      file_ignore_patterns = { ".git/", "node_modules/", "png" },
+      file_ignore_patterns = { "^.git/", "^node_modules/", "%.png" },
       mappings = {
         i = {
           -- Close Telescope with <escape> like all auxiliary windows
