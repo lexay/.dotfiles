@@ -101,7 +101,9 @@ openclose() {
 }
 
 # Keybindings
-# Start predefined session in tmux:
+# Start predefined session in tmux
 bindkey -s "^n" "fzf_tmux_sessions\n"
 # Navigate smart with zoxide
 bindkey -s "^f" "zi\n"
+# Attach to existing tmux session
+bindkey -s "^a" "tmux attach\n"
