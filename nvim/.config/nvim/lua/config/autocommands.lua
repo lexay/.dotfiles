@@ -39,3 +39,13 @@ vim.api.nvim_create_autocmd("TermEnter", {
 vim.api.nvim_create_autocmd("VimResized", {
   command = "wincmd =",
 })
+
+-- Unlist unnamed buffers
+vim.api.nvim_create_autocmd("BufNew", {
+  command = [[
+  lua
+  if vim.api.nvim_buf_get_name(0) == "" then
+    vim.bo.buflisted = false
+  end
+]],
+})
