@@ -62,7 +62,7 @@ function M.zr()
   vim.cmd([[!zoxide remove]] .. " " .. work_dir)
 end
 
--- Move to project root if it is know to zoxide
+-- Move to project root if it is known to zoxide
 function M.cd_project_root()
   local buf_dir = vim.fn.expand("%:p:h")
   local scored_dir_list = _G.zoxide_list()
@@ -101,15 +101,4 @@ function M.live_grep()
   require("telescope.builtin").live_grep({ cwd = project_root })
 end
 
--- Delete empty buffers if any on Telescope buffers
-function M.buffers()
-  local all_buffs = vim.api.nvim_list_bufs()
-
-  for _, i in ipairs(all_buffs) do
-    if vim.api.nvim_buf_get_option(i, "buflisted") and vim.api.nvim_buf_get_name(i) == "" then
-      vim.api.nvim_buf_delete(i, {})
-    end
-  end
-  require("telescope.builtin").buffers()
-end
 return M
