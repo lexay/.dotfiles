@@ -105,5 +105,7 @@ openclose() {
 bindkey -s "^n" "fzf_tmux_sessions\n"
 # Navigate smart with zoxide
 bindkey -s "^f" "zi\n"
+# Edit zoxide list
+bindkey -s "^e" "zoxide edit\n"
 # Attach to existing tmux session
 bindkey -s "^a" "tmux attach\n"
