@@ -70,5 +70,3 @@ vim.cmd([[colorscheme habamax]])
 
 -- Disable presetting keymaps
 vim.g.no_plugin_maps = 1
--- Autocd
-vim.o.autochdir = true
