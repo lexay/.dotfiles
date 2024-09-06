@@ -20,8 +20,8 @@ vim.api.nvim_buf_set_keymap(0, "n", "H", "u", {})
 vim.api.nvim_buf_set_keymap(0, "n", "l", "<cr>", {})
 -- Hide/show dotfiles files
 vim.api.nvim_buf_set_keymap(0, "n", ".", "gh", {})
--- Close netrw with <escape> like all auxiliary windows
-vim.api.nvim_buf_set_keymap(0, "n", "<escape>", "<cmd>close<cr>", {})
+-- Close netrw and return to the previous buffer
+vim.api.nvim_buf_set_keymap(0, "n", "<escape>", "<cmd>Rexplore<cr>", {})
 
 -- Better marks
 -- Mark file(s)
