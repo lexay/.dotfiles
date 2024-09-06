@@ -18,8 +18,6 @@ vim.api.nvim_buf_set_keymap(0, "n", "h", "-", {})
 vim.api.nvim_buf_set_keymap(0, "n", "H", "u", {})
 -- Forward to the next subdir OR open a file
 vim.api.nvim_buf_set_keymap(0, "n", "l", "<cr>", {})
--- Open a file AND close netrw
-vim.api.nvim_buf_set_keymap(0, "n", "L", "<cr><cmd>Lexplore<cr>", {})
 -- Hide/show dotfiles files
 vim.api.nvim_buf_set_keymap(0, "n", ".", "gh", {})
 -- Close netrw with <escape> like all auxiliary windows
