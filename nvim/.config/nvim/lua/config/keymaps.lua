@@ -11,9 +11,9 @@ keymap("n", "<leader><leader>", "<C-^>")
 keymap("n", "<leader>b", "<cmd>bdelete<cr>", { silent = true })
 -- Close all buffers but current
 keymap("n", "<leader>B", utils.buff_only, { silent = true })
--- Switch to previous/next buffer
-keymap("n", "<a-k>", "<cmd>bprevious<cr>")
-keymap("n", "<a-j>", "<cmd>bnext<cr>")
+-- Switch to previous/next local buffer
+keymap("n", "<a-j>", utils.cycle_next_local_buffer)
+keymap("n", "<a-k>", utils.cycle_prev_local_buffer)
 
 -- Moving
 -- Move in normal mode

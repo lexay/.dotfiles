@@ -101,4 +101,57 @@ function M.live_grep()
   require("telescope.builtin").live_grep({ cwd = project_root })
 end
 
+-- Check if buffer's path is local to CWD
+local function is_buffer_local_to_cwd(bufnr, cwd)
+  local bufname = vim.api.nvim_buf_get_name(bufnr)
+  return vim.fn.fnamemodify(bufname, ":p"):find(cwd, 1, true) == 1
+end
+
+-- Get all buffers local to CWD
+local function get_local_buffers()
+  local cwd = vim.fn.getcwd()
+  local all_buffers = vim.api.nvim_list_bufs()
+  local local_buffers = {}
+
+  for _, bufnr in ipairs(all_buffers) do
+    if
+      vim.api.nvim_buf_is_loaded(bufnr)
+      and vim.api.nvim_buf_get_name(bufnr) ~= ""
+      and is_buffer_local_to_cwd(bufnr, cwd)
+    then
+      table.insert(local_buffers, bufnr)
+    end
+  end
+
+  return local_buffers
+end
+
+-- Switch to next local buffer
+function M.cycle_next_local_buffer()
+  local local_buffers = get_local_buffers()
+  local current_bufnr = vim.api.nvim_get_current_buf()
+
+  for i, bufnr in ipairs(local_buffers) do
+    if bufnr == current_bufnr then
+      local next_bufnr = local_buffers[(i % #local_buffers) + 1]
+      vim.api.nvim_set_current_buf(next_bufnr)
+      return
+    end
+  end
+end
+
+-- Switch to previous buffer
+function M.cycle_prev_local_buffer()
+  local local_buffers = get_local_buffers()
+  local current_bufnr = vim.api.nvim_get_current_buf()
+
+  for i, bufnr in ipairs(local_buffers) do
+    if bufnr == current_bufnr then
+      local prev_bufnr = local_buffers[(i - 2 + #local_buffers) % #local_buffers + 1]
+      vim.api.nvim_set_current_buf(prev_bufnr)
+      return
+    end
+  end
+end
+
 return M

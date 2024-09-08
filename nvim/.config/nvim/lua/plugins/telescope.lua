@@ -53,7 +53,6 @@ M.config = function()
   -- Keymaps
   keymap("n", "<leader>ff", utils.find_files)
   keymap("n", "<leader>fg", utils.live_grep)
-  keymap("n", "<leader>fB", "<cmd>Telescope buffers<cr>")
   keymap("n", "<leader>fb", "<cmd>lua require('telescope.builtin').buffers({only_cwd = true, sort_mru = true})<cr>")
   keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
   keymap("n", "<leader>fm", "<cmd>Telescope man_pages<cr>")
