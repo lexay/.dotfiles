@@ -62,45 +62,6 @@ function M.zr()
   vim.cmd([[!zoxide remove]] .. " " .. work_dir)
 end
 
--- Move to project root if it is known to zoxide
-function M.cd_project_root()
-  local buf_dir = vim.fn.expand("%:p:h")
-  local scored_dir_list = _G.zoxide_list()
-
-  if scored_dir_list == nil then
-    return buf_dir
-  end
-
-  local dir_list = {}
-  for _i, dir in ipairs(scored_dir_list) do
-    table.insert(dir_list, dir:match("/.+"))
-  end
-
-  table.sort(dir_list, function(a, b)
-    return #a < #b
-  end)
-
-  local project_root
-  for _, dir in ipairs(dir_list) do
-    if string.match(buf_dir:lower(), dir:lower():gsub("-", "%%-")) then
-      project_root = dir
-    end
-  end
-  return project_root
-end
-
--- Find files from project root
-function M.find_files()
-  local project_root = M.cd_project_root()
-  require("telescope.builtin").find_files({ cwd = project_root })
-end
-
--- Live grep from project root
-function M.live_grep()
-  local project_root = M.cd_project_root()
-  require("telescope.builtin").live_grep({ cwd = project_root })
-end
-
 -- Check if buffer's path is local to CWD
 local function is_buffer_local_to_cwd(bufnr, cwd)
   local bufname = vim.api.nvim_buf_get_name(bufnr)
