@@ -26,13 +26,13 @@ M.config = function()
   end
 
   -- Keymaps
-  keymap("n", "<leader>vr", "<cmd>lua run_cur_buf()<cr>")
-  keymap("n", "<leader>vl", "<cmd>VimuxRunLastCommand<cr>")
-  keymap("n", "<leader>vc", "<cmd>VimuxCloseRunner<cr>")
-  keymap("n", "<leader>vi", "<cmd>VimuxInspectRunner<cr>")
-  keymap("n", "<leader>vp", "<cmd>VimuxPromptCommand<cr>")
-  keymap("n", "<leader>vb", [[<cmd>lua run_cur_buf("bundle exec ruby")<cr>]])
-  keymap("n", "<leader>vs", [[<cmd>VimuxRunCommand("rails s")<cr>]])
+  keymap("n", "<leader>ee", "<cmd>lua run_cur_buf()<cr>")
+  keymap("n", "<leader>el", "<cmd>VimuxRunLastCommand<cr>")
+  keymap("n", "<leader>ex", "<cmd>VimuxCloseRunner<cr>")
+  keymap("n", "<leader>ei", "<cmd>VimuxInspectRunner<cr>")
+  keymap("n", "<leader>ep", "<cmd>VimuxPromptCommand<cr>")
+  keymap("n", "<leader>eeb", [[<cmd>lua run_cur_buf("bundle exec ruby")<cr>]])
+  keymap("n", "<leader>ees", [[<cmd>VimuxRunCommand("rails s")<cr>]])
 
   -- Settings
   vim.g["VimuxUseNearest"] = 0

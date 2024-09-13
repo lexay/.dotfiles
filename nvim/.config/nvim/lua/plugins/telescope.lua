@@ -20,7 +20,6 @@ M.config = function()
           ["<C-j>"] = require("telescope.actions").move_selection_next,
           ["<C-k>"] = require("telescope.actions").move_selection_previous,
           ["<C-p>"] = require("telescope.actions.layout").toggle_preview,
-          ["<C-\\>"] = require("telescope.actions").select_tab,
         },
       },
     },
