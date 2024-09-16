@@ -48,6 +48,8 @@ vim.api.nvim_buf_set_keymap(0, "n", "fF", "d", {})
 vim.api.nvim_buf_set_keymap(0, "n", "fd", "D", {})
 -- Rename file/marked files/directory
 vim.api.nvim_buf_set_keymap(0, "n", "fr", "R", {})
+-- Rename visually highlighted files
+vim.api.nvim_buf_set_keymap(0, "v", "fr", "R", {})
 -- Execute external shell command on marked files
 vim.api.nvim_buf_set_keymap(0, "n", "f;", "mx", {})
 
