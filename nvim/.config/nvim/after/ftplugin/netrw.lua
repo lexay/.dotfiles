@@ -47,7 +47,7 @@ vim.api.nvim_buf_set_keymap(0, "n", "fF", "d", {})
 -- Delete file/marked files and directory/empty directories
 vim.api.nvim_buf_set_keymap(0, "n", "fd", "D", {})
 -- Rename file/marked files/directory
-vim.api.nvim_buf_set_keymap(0, "n", "fr", "R", {})
+vim.keymap.set("n", "fr", utils.rename, { buffer = 0 })
 -- Rename visually highlighted files
 vim.api.nvim_buf_set_keymap(0, "v", "fr", "R", {})
 -- Execute external shell command on marked files
