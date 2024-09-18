@@ -42,9 +42,9 @@ autoload -U compinit && compinit -d
 # Colors
 # Highlighters
 typeset -A ZSH_HIGHLIGHT_STYLES
-ZSH_HIGHLIGHT_STYLES[command]="fg=#af87af,bold,underline"
-ZSH_HIGHLIGHT_STYLES[alias]="fg=#af87af,bold,underline"
-ZSH_HIGHLIGHT_STYLES[builtin]="fg=#af87af,bold,underline"
+ZSH_HIGHLIGHT_STYLES[command]="fg=#af87af,bold"
+ZSH_HIGHLIGHT_STYLES[alias]="fg=#af87af,bold"
+ZSH_HIGHLIGHT_STYLES[builtin]="fg=#af87af,bold"
 # User prompt
 # Light %? and dark green %~
 PROMPT="%(?.%B%F{#87af87}>.%B%F{#d7875f}>)%f%b"
