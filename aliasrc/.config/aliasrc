@@ -14,7 +14,7 @@ alias fgrep="fgrep --color=auto"
 alias grep="grep --color=auto"
 
 # Directories
-alias mkd="mkdir -pv"
+alias mkdir="mkdir -pv"
 
 # Info
 alias info="info --vi-keys"
