@@ -65,7 +65,14 @@ end
 -- Check if buffer's path is local to CWD
 local function is_buffer_local_to_cwd(bufnr, cwd)
   local bufname = vim.api.nvim_buf_get_name(bufnr)
-  return vim.fn.fnamemodify(bufname, ":p"):find(cwd, 1, true) == 1
+
+  local separator = cwd:match("[\\/]")
+
+  if cwd == "/" then
+    separator = ""
+  end
+
+  return bufname:find(cwd .. separator, 1, true) == 1
 end
 
 -- Get all buffers local to CWD
