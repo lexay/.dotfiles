@@ -24,10 +24,6 @@ alias less="less --use-color -Dsm"
 
 # LS
 alias ls="ls --color=auto --group-directories-first"
-alias ll="ls -alF"
-alias ld="ls -ald"
-alias la="ls -A"
-alias l="ls -CF"
 
 # Neovim
 alias vi="nvim"
