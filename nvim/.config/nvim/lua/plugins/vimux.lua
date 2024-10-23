@@ -39,6 +39,7 @@ M.config = function()
   keymap("n", "<leader>ep", "<cmd>VimuxPromptCommand<cr>")
   keymap("n", "<leader>eeb", [[<cmd>lua run_cur_buf("bundle exec ruby")<cr>]])
   keymap("n", "<leader>ees", [[<cmd>VimuxRunCommand("rails s")<cr>]])
+  keymap("n", "<leader>eec", [[<cmd>lua run_cur_buf("irb -r")<cr>]])
 
   -- Settings
   vim.g["VimuxUseNearest"] = 0
