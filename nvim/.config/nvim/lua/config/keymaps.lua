@@ -5,8 +5,6 @@ utils = require("config.utils")
 -- Keymaps
 
 -- Buffers
--- Move between buffers opened recently
-keymap("n", "<leader><leader>", "<C-^>")
 -- Close current buffer
 keymap("n", "<leader>b", "<cmd>bdelete<cr>", { silent = true })
 -- Close all buffers but current
@@ -68,6 +66,8 @@ keymap("n", "<leader>w", "<cmd>close<cr>")
 keymap("n", "<leader>W", "<cmd>only<cr>")
 
 -- Tabs
+-- Move between tabs opened recently
+keymap("n", "<leader><leader>", "<c-tab>")
 -- Switch tabs
 keymap("n", "<a-h>", "<cmd>tabprevious<cr>", { silent = true })
 keymap("n", "<a-l>", "<cmd>tabnext<cr>", { silent = true })
