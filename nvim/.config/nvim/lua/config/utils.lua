@@ -52,14 +52,14 @@ end
 
 -- Add to zoxide list
 function M.za()
-  local work_dir = vim.fn.expand("%:p:h")
-  vim.cmd([[!zoxide add]] .. " " .. work_dir)
+  local cur_buf_dir = vim.fn.expand("%:p:h")
+  vim.cmd([[!zoxide add]] .. " " .. cur_buf_dir)
 end
 
 -- Remove from zoxide list
 function M.zr()
-  local work_dir = vim.fn.expand("%:p:h")
-  vim.cmd([[!zoxide remove]] .. " " .. work_dir)
+  local cur_buf_dir = vim.fn.expand("%:p:h")
+  vim.cmd([[!zoxide remove]] .. " " .. cur_buf_dir)
 end
 
 -- Check if buffer's path is local to CWD
