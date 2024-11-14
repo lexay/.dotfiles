@@ -5,8 +5,8 @@ utils = require("config.utils")
 -- Keymaps
 
 -- Buffers
--- Close current buffer
-keymap("n", "<leader>b", "<cmd>bdelete<cr>", { silent = true })
+-- Close current buffer (keep split open)
+keymap("n", "<leader>b", "<cmd>bnext<cr><cmd>bdelete #<cr>", { silent = true })
 -- Close all buffers but current
 keymap("n", "<leader>B", utils.buff_only, { silent = true })
 -- Switch to previous/next local buffer
