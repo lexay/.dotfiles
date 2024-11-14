@@ -66,3 +66,6 @@ vim.api.nvim_buf_set_keymap(0, "n", "bl", "gb", {})
 
 -- Highlight marked files
 vim.cmd([[hi! link netrwMarkFile Search]])
+
+-- Refresh tree
+vim.api.nvim_buf_set_keymap(0, "n", "r", "<plug>NetrwRefresh", {})
