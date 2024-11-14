@@ -22,7 +22,7 @@ M.config = function()
   function run_cur_buf(cmd)
     cmd = cmd or check_cmd()
     local bufname = vim.api.nvim_buf_get_name(0)
-    vim.fn.VimuxRunCommand(string.format(" clear; %s %s", cmd, bufname))
+    vim.fn.VimuxRunCommand(string.format("clear; %s %s", cmd, bufname))
   end
 
   function open_runner()
