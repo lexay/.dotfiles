@@ -1,5 +1,6 @@
 local M = {
-  "lexay/telescope-zoxide.nvim",
+  -- "lexay/telescope-zoxide.nvim",
+  dir = "~/Projects/telescope-zoxide/",
 }
 
 M.config = function()
