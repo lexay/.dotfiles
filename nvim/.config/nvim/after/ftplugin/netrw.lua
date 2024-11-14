@@ -4,6 +4,9 @@
 -- Hide banner
 vim.g.netrw_banner = 0
 
+-- Copy files recursivelly
+vim.g.netrw_localcopycmdopt = " -R"
+
 -- Use `echoerr` for showing errors
 vim.g.netrw_use_errorwindow = 0
 
