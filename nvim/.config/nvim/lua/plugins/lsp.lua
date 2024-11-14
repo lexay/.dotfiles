@@ -34,7 +34,7 @@ M.config = function()
     ensure_installed = {
       "solargraph",
       "lua_ls",
-      "tsserver",
+      "ts_ls",
     },
     handlers = {
       lsp_zero.default_setup,
