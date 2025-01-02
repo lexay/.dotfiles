@@ -39,12 +39,12 @@ keymap("v", "gR", "q:s///gc<left><left><left><left>")
 keymap("n", "gV", "`[v`]")
 
 -- Windows
+-- Open new tab
+keymap("n", "<leader>n", "<cmd>tabnew<cr>")
 -- Open vertical split
 keymap("n", "<leader>v", "<cmd>vsplit<cr>")
 -- Open horizontal split
 keymap("n", "<leader>x", "<cmd>split<cr>")
--- Open tab
-keymap("n", "<leader>c", "<cmd>tabnew<cr>")
 -- Scale window size to max width / height / to normal
 keymap("n", "<leader>)", "<cmd>vertical resize<cr>")
 keymap("n", "<leader>_", "<cmd>resize<cr>")
