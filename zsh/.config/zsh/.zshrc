@@ -101,11 +101,13 @@ openclose() {
 }
 
 # Keybindings
-# Start predefined session in tmux
-bindkey -s "^n" "fzf_tmux_sessions\n"
 # Navigate smart with zoxide
 bindkey -s "^f" "zi\n"
+# + create a named tmux session in CWD
+bindkey -s "^o" "zimux\n"
 # Edit zoxide list
 bindkey -s "^e" "zoxide edit\n"
 # Attach to existing tmux session
 bindkey -s "^a" "tmux attach\n"
+# Create new tmux session
+bindkey -s "^n" "tmux\n"
