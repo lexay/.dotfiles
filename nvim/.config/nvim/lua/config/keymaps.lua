@@ -76,7 +76,7 @@ keymap("n", "<leader>T", "<cmd>tabonly<cr>", { silent = true })
 keymap("n", "<leader>t", "<cmd>tabclose<cr>", { silent = true })
 
 -- Netrw
-keymap("n", "<leader>dd", "<cmd>Explore<cr>")
+keymap("n", "<leader>d", "<cmd>Explore<cr>")
 
 -- Other
 -- Copy/paste from system clipboard
@@ -144,6 +144,5 @@ keymap("n", "<leader>za", utils.za)
 keymap("n", "<leader>zr", utils.zr)
 keymap("n", "<leader>ze", "<cmd>tabnew term://zoxide edit<cr>")
 
--- Close quickfix list
-keymap("n", "<leader>qq", "<cmd>copen<cr>")
-keymap("n", "<leader>qx", "<cmd>cclose<cr>")
+-- Open quickfix list
+keymap("n", "<leader>q", "<cmd>copen<cr>")
