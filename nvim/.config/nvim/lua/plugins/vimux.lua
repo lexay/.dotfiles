@@ -5,6 +5,10 @@ local M = {
 M.branch = "master"
 
 M.config = function()
+  local function set_js()
+    return "node"
+  end
+
   local function set_ruby()
     local gemfile = io.open("Gemfile", "r")
 
@@ -16,8 +20,8 @@ M.config = function()
 
   local function check_cmd()
     local commands = {
+      javascript = set_js,
       ruby = set_ruby,
-      javascript = "node",
     }
 
     local filetype = vim.bo.filetype
