@@ -54,5 +54,5 @@ mods = "Control|Alt|Shift"
 history = 10000
 
 [window]
-decorations = "full"
+decorations = "Full"
 startup_mode = "Maximized"
