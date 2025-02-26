@@ -24,10 +24,15 @@ M.config = function()
       ruby = set_ruby,
     }
 
-    local filetype = vim.bo.filetype
-    local cmd = commands[filetype]
+    setmetatable(commands, {
+      __index = function(_, _)
+        return function()
+          return "cat"
+        end
+      end,
+    })
 
-    return cmd() or filetype
+    return commands[vim.bo.filetype]()
   end
 
   function run_cur_buf(cmd)
