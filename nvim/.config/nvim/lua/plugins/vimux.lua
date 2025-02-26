@@ -5,18 +5,25 @@ local M = {
 M.branch = "master"
 
 M.config = function()
-  local check_cmd = function()
-    local filetype = vim.bo.filetype
+  local function set_ruby()
+    local gemfile = io.open("Gemfile", "r")
 
-    if filetype == "" then
-      return "cat"
+    if gemfile then
+      gemfile.close()
+      return "bundle exec ruby"
     end
+  end
 
+  local function check_cmd()
     local commands = {
+      ruby = set_ruby,
       javascript = "node",
     }
 
-    return commands[filetype] or filetype
+    local filetype = vim.bo.filetype
+    local cmd = commands[filetype]
+
+    return cmd() or filetype
   end
 
   function run_cur_buf(cmd)
