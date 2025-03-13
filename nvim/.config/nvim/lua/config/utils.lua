@@ -130,4 +130,10 @@ function M.rename()
   vim.cmd("lcd " .. cwd)
 end
 
+-- Delete current buffer and go back to previous one
+function M.backdelete()
+  vim.cmd("bdelete %")
+  M.cycle_prev_local_buffer()
+end
+
 return M
