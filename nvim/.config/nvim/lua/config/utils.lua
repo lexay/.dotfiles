@@ -132,8 +132,9 @@ end
 
 -- Delete current buffer and go back to previous one
 function M.backdelete()
-  vim.cmd("bdelete %")
+  local current_bufnr = vim.api.nvim_get_current_buf()
   M.cycle_prev_local_buffer()
+  vim.cmd("bdelete " .. current_bufnr)
 end
 
 return M
