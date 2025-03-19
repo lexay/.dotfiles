@@ -45,10 +45,11 @@ keymap("n", "<leader>n", "<cmd>tabnew<cr>")
 keymap("n", "<leader>v", "<cmd>vsplit<cr>")
 -- Open horizontal split
 keymap("n", "<leader>x", "<cmd>split<cr>")
--- Scale window size to max width / height / to normal
+-- Scale window size to max width / height / both / to normal
 keymap("n", "<leader>)", "<cmd>vertical resize<cr>")
 keymap("n", "<leader>_", "<cmd>resize<cr>")
-keymap("n", "<leader>0", "<c-w>=<space><cr>")
+keymap("n", "<leader><leader>z", utils.maxresize)
+keymap("n", "<leader>0", "<c-w>=<cr>")
 -- Resize window width
 keymap("n", "<a-0>", "<c-w>>")
 keymap("n", "<a-9>", "<c-w><")

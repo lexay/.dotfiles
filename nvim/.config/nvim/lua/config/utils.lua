@@ -137,4 +137,19 @@ function M.backdelete()
   vim.cmd("bdelete " .. current_bufnr)
 end
 
+-- Resize current window to max size and back
+function M.maxresize()
+  local winwidth = vim.api.nvim_win_get_width(0)
+  local winheight = vim.api.nvim_win_get_height(0)
+  local max_windwidth = vim.o.columns
+  local max_winheight = vim.o.lines
+
+  if winwidth <= max_windwidth / 2 or winheight <= max_winheight / 2 then
+    vim.cmd("resize")
+    vim.cmd("vertical resize")
+  else
+    vim.cmd([[call feedkeys("\<C-w>=")]])
+  end
+end
+
 return M
