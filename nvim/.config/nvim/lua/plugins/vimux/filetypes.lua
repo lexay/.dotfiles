@@ -15,9 +15,14 @@ function M.set_ruby()
   return "ruby"
 end
 
+function M.set_rust()
+  return "cargo run"
+end
+
 M.commands = {
   javascript = M.set_js,
   ruby = M.set_ruby,
+  rust = M.set_rust,
 }
 
 setmetatable(M.commands, {
