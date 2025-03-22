@@ -16,7 +16,13 @@ M.config = function()
       mappings = {
         i = {
           -- Close Telescope with <escape> like all auxiliary windows
-          ["<esc>"] = require("telescope.actions").close,
+          ["<C-c>"] = false,
+          ["<C-t>"] = false,
+          ["<Up>"] = false,
+          ["<Down>"] = false,
+          ["<PageUp>"] = false,
+          ["<PageDown>"] = false,
+          ["<Esc>"] = require("telescope.actions").close,
           ["<C-j>"] = require("telescope.actions").move_selection_next,
           ["<C-k>"] = require("telescope.actions").move_selection_previous,
           ["<C-n>"] = require("telescope.actions").select_tab,
