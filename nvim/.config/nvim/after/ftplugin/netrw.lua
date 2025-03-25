@@ -117,12 +117,9 @@ bufmap(
   "X",
   [[<cmd>NetrwKeepj call s:NetrwMarkFileMove(1)<cr><cmd>NetrwKeepj call s:NetrwRefresh(1, b:netrw_curdir)<cr>]]
 )
--- Move files from marked list to buffer list
-bufmap("n", "fb", "cb")
--- Show target directory using echo (useful when the banner is hidden)
--- bufmap("n", "fq", [[<cmd>echo 'Target: ' . netrw#Expose("netrwmftgt")<cr>]])
--- Place a target on a directory for consecutive copy/move command and show that directory name as target
--- bufmap("n", "ft", "mtfq")
+-- Move marked files to buffer list
+bufmap("n", "b", "<cmd>NetrwKeepj call s:NetrwBadd(1,0)<cr>")
+-- Place target on directory for consecutive copy/move command and show that directory name as target
 bufmap(
   "n",
   "t",
