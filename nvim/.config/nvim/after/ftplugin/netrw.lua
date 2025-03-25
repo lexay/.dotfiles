@@ -7,6 +7,10 @@ vim.g.netrw_localcopycmdopt = " -R"
 -- Use `echoerr` for showing errors
 vim.g.netrw_use_errorwindow = 0
 
+local bufmap = function(mode, key, cmd, opts)
+  vim.api.nvim_buf_set_keymap(0, mode, key, cmd, opts or {})
+end
+
 -- Better navigation keymaps
 -- Unset default keymaps
 bufmap("n", "a", "<nop>")
@@ -69,61 +73,67 @@ bufmap("n", "X", "<nop>")
 bufmap("n", "<del>", "<nop>")
 bufmap("n", "D", "<nop>")
 bufmap("n", "R", "<nop>")
+
+-- Make file
+bufmap("n", "F", "<cmd>NetrwKeepj call s:NetrwOpenFile(1)<cr>")
+-- Make directory
+bufmap("n", "D", [[<cmd>NetrwKeepj call s:NetrwMakeDir("")<cr>]])
+-- Remove file(s) /directory(ies) recursivelly
+bufmap("n", "R", [[<cmd>NetrwKeepj call s:NetrwLocalRm(b:netrw_curdir)<cr>]])
 -- Move
--- One level up
-vim.api.nvim_buf_set_keymap(0, "n", "h", "-", {})
--- Back in history
-vim.api.nvim_buf_set_keymap(0, "n", "H", "u", {})
--- Forward to the next subdir OR open a file
-vim.api.nvim_buf_set_keymap(0, "n", "l", "<cr>", {})
+-- Back to previous directory
+bufmap("n", "H", [[<cmd>NetrwKeepj call s:NetrwBookHistHandler(4, expand("%"))<cr>]])
+-- Back to parent directory
+bufmap("n", "h", "<cmd>NetrwKeepj call s:NetrwBrowseUpDir(1)<cr>")
+-- Forward to sub directory / Open file
+bufmap("n", "l", "<cr>")
 -- Hide/show dotfiles files
-vim.api.nvim_buf_set_keymap(0, "n", ".", "gh", {})
+bufmap("n", ".", "<cmd>NetrwKeepj call s:NetrwHidden(1)<cr>")
 -- Close netrw and return to the previous buffer
-vim.api.nvim_buf_set_keymap(0, "n", "<escape>", "<cmd>Rexplore<cr>", {})
+bufmap("n", "<escape>", "<cmd>Rexplore<cr>")
+-- Open file in new split
+bufmap("n", "<C-x>", "<cmd>NetrwKeepj call s:NetrwSplit(3)<cr>")
+-- Open file in new tab
+bufmap("n", "<C-n>", "<cmd>NetrwKeepj call s:NetrwSplit(4)<cr>")
+-- Open file in new vsplit
+bufmap("n", "<C-v>", "<cmd>NetrwKeepj call s:NetrwSplit(5)<cr>")
+-- Get diff for files
+bufmap("n", "<C-d>", "<cmd>NetrwKeepj call s:NetrwMarkFileDiff(1)<cr>")
 
 -- Better marks
--- Mark file(s)
-vim.api.nvim_buf_set_keymap(0, "n", "<tab>", "mf", {})
--- Unmark file(s) in the current buffer
-vim.api.nvim_buf_set_keymap(0, "n", "<s-tab>", "mF", {})
+-- Mark/unmark file(s)
+bufmap("n", "<tab>", "<cmd>NetrwKeepj call s:NetrwMarkFile(1, s:NetrwGetWord())<cr>")
+-- Unmark marked files from current netrw buffer
+bufmap("n", "<s-tab>", [[<cmd>NetrwKeepj call s:NetrwUnmarkList(bufnr("%"), b:netrw_curdir)<cr>]])
 -- Unmark all marked files
-vim.api.nvim_buf_set_keymap(0, "n", "<leader><tab>", "mu", {})
+bufmap("n", "<leader><tab>", "<cmd>NetrwKeepj call s:NetrwUnMarkFile(1)<cr>")
 -- List marked files
-vim.api.nvim_buf_set_keymap(0, "n", "fl", [[<cmd>echo join(netrw#Expose("netrwmarkfilelist"), "\n")<cr>]], {})
+bufmap("n", "s", [[<cmd>echo join(netrw#Expose("netrwmarkfilelist"), "\n")<cr>]])
 -- Copy marked files
-vim.api.nvim_buf_set_keymap(0, "n", "fc", "mc", {})
--- Move marked files and refresh netrw current buffer
-vim.api.nvim_buf_set_keymap(0, "n", "fx", "mm<plug>NetrwRefresh", {})
+bufmap("n", "C", "<cmd>NetrwKeepj call s:NetrwMarkFileCopy(1)<cr>")
+-- Move marked files and refresh current netrw buffer
+bufmap(
+  "n",
+  "X",
+  [[<cmd>NetrwKeepj call s:NetrwMarkFileMove(1)<cr><cmd>NetrwKeepj call s:NetrwRefresh(1, b:netrw_curdir)<cr>]]
+)
 -- Move files from marked list to buffer list
-vim.api.nvim_buf_set_keymap(0, "n", "fb", "cb", {})
+bufmap("n", "fb", "cb")
 -- Show target directory using echo (useful when the banner is hidden)
-vim.api.nvim_buf_set_keymap(0, "n", "fq", [[<cmd>echo 'Target: ' . netrw#Expose("netrwmftgt")<cr>]], {})
+-- bufmap("n", "fq", [[<cmd>echo 'Target: ' . netrw#Expose("netrwmftgt")<cr>]])
 -- Place a target on a directory for consecutive copy/move command and show that directory name as target
-vim.api.nvim_buf_set_keymap(0, "n", "ft", "mtfq", {})
+-- bufmap("n", "ft", "mtfq")
+bufmap(
+  "n",
+  "t",
+  [[<cmd>NetrwKeepj call s:NetrwMarkFileTgt(1)<cr><cmd>echo 'Target: ' . netrw#Expose("netrwmftgt")<cr>]]
+)
 
--- Create file, write and switch back to netrw
-vim.api.nvim_buf_set_keymap(0, "n", "ff", "ft%<cmd>w<cr><c-w><c-p>", {})
--- Create directory
-vim.api.nvim_buf_set_keymap(0, "n", "fF", "d", {})
--- Delete file/marked files and directory/empty directories
-vim.api.nvim_buf_set_keymap(0, "n", "fd", "D", {})
--- Rename file/marked files/directory
-vim.keymap.set("n", "fr", utils.rename, { buffer = 0 })
--- Rename visually highlighted files
-vim.api.nvim_buf_set_keymap(0, "v", "fr", "R", {})
--- Execute external shell command on marked files
-vim.api.nvim_buf_set_keymap(0, "n", "f;", "mx", {})
-
--- Better bookmarks
--- Create bookmark
-vim.api.nvim_buf_set_keymap(0, "n", "bb", "mb", {})
--- Delete created bookmark
-vim.api.nvim_buf_set_keymap(0, "n", "bd", "mB", {})
--- Go to bookmark
-vim.api.nvim_buf_set_keymap(0, "n", "bl", "gb", {})
+-- Rename file / directory
+bufmap("n", "N", "<cmd>NetrwKeepj call s:NetrwLocalRename(b:netrw_curdir)<cr>")
 
 -- Highlight marked files
 vim.cmd([[hi! link netrwMarkFile Search]])
 
 -- Refresh tree
-vim.api.nvim_buf_set_keymap(0, "n", "r", "<plug>NetrwRefresh", {})
+bufmap("n", "r", "<plug>NetrwRefresh")
