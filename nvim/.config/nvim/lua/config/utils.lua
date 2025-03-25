@@ -122,14 +122,6 @@ function M.cycle_prev_local_buffer()
   end
 end
 
--- Fix renaming of marked files in netrw with g:netrw_keepdir = 1
-function M.rename()
-  local cwd = vim.fn.getcwd()
-  vim.cmd("lcd %")
-  vim.cmd("normal R")
-  vim.cmd("lcd " .. cwd)
-end
-
 -- Delete current buffer and go back to previous one
 function M.backdelete()
   local current_bufnr = vim.api.nvim_get_current_buf()
