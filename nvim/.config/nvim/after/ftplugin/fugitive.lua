@@ -1,5 +1,5 @@
 -- Disable netrw
-vim.api.nvim_buf_set_keymap(0, "n", "<leader>dd", "<nop>", {})
+vim.api.nvim_buf_set_keymap(0, "n", "<leader>d", "<nop>", {})
 
 -- Disable keymaps used for resizing
 vim.api.nvim_buf_set_keymap(0, "n", "=", "<nop>", {})
