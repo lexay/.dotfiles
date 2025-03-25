@@ -1,6 +1,3 @@
--- Thanks to Heiker Curiel
--- https://vonheikemen.github.io/devlog/tools/using-netrw-vim-builtin-file-explorer
-
 -- Hide banner
 vim.g.netrw_banner = 0
 
