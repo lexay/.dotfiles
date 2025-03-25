@@ -57,11 +57,12 @@ M.config = function()
   })
 
   -- Keymaps
-  keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
-  keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>")
-  keymap("n", "<leader>fb", "<cmd>lua require('telescope.builtin').buffers({only_cwd = true, sort_mru = true})<cr>")
-  keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
-  keymap("n", "<leader>fm", "<cmd>Telescope man_pages<cr>")
+  local map = vim.keymap.set
+  map("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
+  map("n", "<leader>fg", "<cmd>Telescope live_grep<cr>")
+  map("n", "<leader>fb", "<cmd>lua require('telescope.builtin').buffers({only_cwd = true, sort_mru = true})<cr>")
+  map("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
+  map("n", "<leader>fm", "<cmd>Telescope man_pages<cr>")
 end
 
 M.dependencies = { "nvim-lua/plenary.nvim" }

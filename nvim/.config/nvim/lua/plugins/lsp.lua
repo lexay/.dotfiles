@@ -46,10 +46,11 @@ M.config = function()
     -- :h vim.lsp.semantic_tokens_start()
     client.server_capabilities.semanticTokensProvider = nil
     local opts = { buffer = bufnr }
-    keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
-    keymap("n", "gr", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
-    keymap("n", "gt", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
-    keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
+    local map = vim.keymap.set
+    map("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
+    map("n", "gr", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
+    map("n", "gt", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
+    map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
   end)
 
   -- CMP

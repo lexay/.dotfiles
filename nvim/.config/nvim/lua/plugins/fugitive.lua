@@ -4,9 +4,10 @@ local M = {
 
 M.config = function()
   -- Keymaps
-  keymap("n", "gs", "<cmd>tabnew<cr><cmd>G<cr><cmd>only<cr>", { silent = true })
-  keymap("n", "gj", "<cmd>Gclog<cr>", { silent = true })
-  keymap("n", "gA", "<cmd>Git add %<cr>", { silent = true })
+  local map = vim.keymap.set
+  map("n", "gs", "<cmd>tabnew<cr><cmd>G<cr><cmd>only<cr>", { silent = true })
+  map("n", "gj", "<cmd>Gclog<cr>", { silent = true })
+  map("n", "gA", "<cmd>Git add %<cr>", { silent = true })
 end
 
 return M

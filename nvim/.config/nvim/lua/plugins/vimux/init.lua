@@ -23,9 +23,10 @@ M.config = function()
   end
 
   -- Keymaps
-  keymap("n", "<leader>l", "<cmd>VimuxRunLastCommand<cr>")
-  keymap("n", "<leader>o", "<cmd>lua open_runner()<cr>")
-  keymap("n", "<leader>r", "<cmd>lua run_cur_buf()<cr>")
+  local map = vim.keymap.set
+  map("n", "<leader>l", "<cmd>VimuxRunLastCommand<cr>")
+  map("n", "<leader>o", "<cmd>lua open_runner()<cr>")
+  map("n", "<leader>r", "<cmd>lua run_cur_buf()<cr>")
 
   -- Settings
   vim.g["VimuxUseNearest"] = 0

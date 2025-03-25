@@ -3,7 +3,8 @@ local M = {
 }
 
 M.config = function()
-  keymap("n", "<c-bslash>", "<nop>")
+  local map = vim.keymap.set
+  map("n", "<c-bslash>", "<nop>")
 end
 
 return M
