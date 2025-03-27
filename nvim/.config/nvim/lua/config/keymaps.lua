@@ -147,3 +147,5 @@ map("n", "<leader>ze", "<cmd>tabnew term://zoxide edit<cr>")
 
 -- Open quickfix list
 map("n", "<leader>q", "<cmd>copen<cr>")
+-- Clear quickfix list
+map("n", "<leader>c", utils.clear_qf)

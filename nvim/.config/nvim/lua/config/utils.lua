@@ -144,4 +144,9 @@ function M.maxresize()
   end
 end
 
+-- Clear quickfix list
+function M.clear_qf()
+  vim.fn.setqflist({}, "r")
+end
+
 return M
