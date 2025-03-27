@@ -124,6 +124,16 @@ bufmap(
   "t",
   [[<cmd>NetrwKeepj call s:NetrwMarkFileTgt(1)<cr><cmd>echo 'Target: ' . netrw#Expose("netrwmftgt")<cr>]]
 )
+-- Set quickfix list with marked files
+bufmap("n", "Q", "<cmd>lua NetrwSetQFWithMarked()<cr>")
+function NetrwSetQFWithMarked()
+  local marked = vim.fn.eval([[netrw#Expose("netrwmarkfilelist")]])
+  local qf = {}
+  for _, file in ipairs(marked) do
+    table.insert(qf, { filename = file })
+  end
+  vim.fn.setqflist(qf, "r")
+end
 
 -- Rename file / directory
 bufmap("n", "N", "<cmd>NetrwKeepj call s:NetrwLocalRename(b:netrw_curdir)<cr>")
