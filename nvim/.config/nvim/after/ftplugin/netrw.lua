@@ -134,6 +134,8 @@ function NetrwSetQFWithMarked()
   end
   vim.fn.setqflist(qf, "r")
 end
+-- Edit marked file(s)
+bufmap("n", "L", "<cmd>NetrwKeepj call s:NetrwMarkFileEdit(1)<cr>")
 
 -- Rename file / directory
 bufmap("n", "N", "<cmd>NetrwKeepj call s:NetrwLocalRename(b:netrw_curdir)<cr>")
