@@ -83,7 +83,7 @@ local function get_local_buffers()
 
   for _, bufnr in ipairs(all_buffers) do
     if
-      vim.api.nvim_buf_is_loaded(bufnr)
+      vim.api.nvim_get_option_value("buflisted", { buf = bufnr })
       and vim.api.nvim_buf_get_name(bufnr) ~= ""
       and is_buffer_local_to_cwd(bufnr, cwd)
     then
