@@ -108,6 +108,12 @@ bufmap("n", "<s-tab>", [[<cmd>NetrwKeepj call s:NetrwUnmarkList(bufnr("%"), b:ne
 bufmap("n", "<leader><tab>", "<cmd>NetrwKeepj call s:NetrwUnMarkFile(1)<cr>")
 -- List marked files
 bufmap("n", "s", [[<cmd>echo join(netrw#Expose("netrwmarkfilelist"), "\n")<cr>]])
+-- Place target on directory for consecutive copy/move command and show that directory name as target
+bufmap(
+  "n",
+  "t",
+  [[<cmd>NetrwKeepj call s:NetrwMarkFileTgt(1)<cr><cmd>echo 'Target: ' . netrw#Expose("netrwmftgt")<cr>]]
+)
 -- Copy marked files
 bufmap("n", "C", "<cmd>NetrwKeepj call s:NetrwMarkFileCopy(1)<cr>")
 -- Move marked files and refresh current netrw buffer
@@ -115,12 +121,6 @@ bufmap(
   "n",
   "X",
   [[<cmd>NetrwKeepj call s:NetrwMarkFileMove(1)<cr><cmd>NetrwKeepj call s:NetrwRefresh(1, b:netrw_curdir)<cr>]]
-)
--- Place target on directory for consecutive copy/move command and show that directory name as target
-bufmap(
-  "n",
-  "t",
-  [[<cmd>NetrwKeepj call s:NetrwMarkFileTgt(1)<cr><cmd>echo 'Target: ' . netrw#Expose("netrwmftgt")<cr>]]
 )
 -- Set quickfix list with marked files
 bufmap("n", "Q", "<cmd>lua NetrwSetQFWithMarked()<cr>")
