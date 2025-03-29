@@ -27,7 +27,7 @@ function M.buff_only()
   local buffs_listed = {}
 
   for _, i in ipairs(all_buffs) do
-    if vim.api.nvim_buf_is_loaded(i) and vim.api.nvim_buf_get_option(i, "buflisted") then
+    if vim.api.nvim_buf_is_loaded(i) and vim.api.nvim_get_option_value("buflisted", { buf = i }) then
       table.insert(buffs_listed, i)
     end
   end
