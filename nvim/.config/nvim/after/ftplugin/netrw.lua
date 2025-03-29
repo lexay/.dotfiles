@@ -126,10 +126,17 @@ bufmap(
 bufmap("n", "Q", "<cmd>lua NetrwSetQFWithMarked()<cr>")
 function NetrwSetQFWithMarked()
   local marked = vim.fn.eval([[netrw#Expose("netrwmarkfilelist")]])
+
+  if marked == "n/a" then
+    return vim.api.nvim_err_writeln("No files or directories marked!")
+  end
+
   local qf = {}
+
   for _, file in ipairs(marked) do
     table.insert(qf, { filename = file })
   end
+
   vim.fn.setqflist(qf, "r")
 end
 -- Send marked file(s) to buffer list without loading them and edit first one from marked list
