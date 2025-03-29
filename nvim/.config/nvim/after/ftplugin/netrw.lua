@@ -147,6 +147,3 @@ bufmap("n", "N", "<cmd>NetrwKeepj call s:NetrwLocalRename(b:netrw_curdir)<cr>")
 
 -- Highlight marked files
 vim.cmd([[hi! link netrwMarkFile Search]])
-
--- Refresh tree
-bufmap("n", "r", "<plug>NetrwRefresh")
