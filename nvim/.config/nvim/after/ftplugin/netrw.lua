@@ -116,8 +116,6 @@ bufmap(
   "X",
   [[<cmd>NetrwKeepj call s:NetrwMarkFileMove(1)<cr><cmd>NetrwKeepj call s:NetrwRefresh(1, b:netrw_curdir)<cr>]]
 )
--- Move marked files to buffer list
-bufmap("n", "b", "<cmd>NetrwKeepj call s:NetrwBadd(1,0)<cr>")
 -- Place target on directory for consecutive copy/move command and show that directory name as target
 bufmap(
   "n",
@@ -134,8 +132,8 @@ function NetrwSetQFWithMarked()
   end
   vim.fn.setqflist(qf, "r")
 end
--- Edit marked file(s)
-bufmap("n", "L", "<cmd>NetrwKeepj call s:NetrwMarkFileEdit(1)<cr>")
+-- Send marked file(s) to buffer list without loading them and edit first one from marked list
+bufmap("n", "B", "<cmd>NetrwKeepj call s:NetrwMarkFileEdit(1)<cr>")
 
 -- Rename file / directory
 bufmap("n", "N", "<cmd>NetrwKeepj call s:NetrwLocalRename(b:netrw_curdir)<cr>")
