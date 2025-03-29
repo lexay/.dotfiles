@@ -12,6 +12,9 @@ map("n", "<leader>B", utils.buff_only, { silent = true })
 -- Switch to previous/next local buffer
 map("n", "<a-j>", utils.cycle_next_local_buffer)
 map("n", "<a-k>", utils.cycle_prev_local_buffer)
+-- Switch to previous/next quickfix entry
+map("n", "<a-n>", "<cmd>silent! cnext<cr>")
+map("n", "<a-p>", "<cmd>silent! cprevious<cr>")
 
 -- Moving
 -- Move in normal mode
@@ -122,9 +125,6 @@ map("n", "gh", [[<cmd>diffget /2<cr>]])
 map("n", "gl", [[<cmd>diffget /3<cr>]])
 -- Inspect for syntax tree objects
 map("n", "<leader>k", "<cmd>Inspect<cr>")
--- Switch to previous/next quickfix entry
-map("n", "<a-n>", "<cmd>cnext<cr>")
-map("n", "<a-p>", "<cmd>cprevious<cr>")
 -- Ruby docs
 map("n", "<leader>frbh", utils.show_ri)
 map("n", "<leader>frbg", utils.find_ri)
