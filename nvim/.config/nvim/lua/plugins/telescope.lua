@@ -27,6 +27,8 @@ M.config = function()
           ["<C-k>"] = require("telescope.actions").move_selection_previous,
           ["<C-n>"] = require("telescope.actions").select_tab,
           ["<C-p>"] = require("telescope.actions.layout").toggle_preview,
+          ["<C-q>"] = require("telescope.actions").send_selected_to_qflist,
+          ["<A-q>"] = require("telescope.actions").add_selected_to_qflist,
         },
       },
     },
