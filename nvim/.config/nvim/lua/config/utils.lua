@@ -108,7 +108,7 @@ function M.cycle_next_local_buffer()
   end
 end
 
--- Switch to previous buffer
+-- Switch to previous local buffer
 function M.cycle_prev_local_buffer()
   local local_buffers = get_local_buffers()
   local current_bufnr = vim.api.nvim_get_current_buf()
