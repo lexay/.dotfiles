@@ -125,8 +125,7 @@ bufmap(
   [[<cmd>NetrwKeepj call s:NetrwMarkFileMove(1)<cr><cmd>NetrwKeepj call s:NetrwRefresh(1, b:netrw_curdir)<cr>]]
 )
 -- Set quickfix list with marked files
-bufmap("n", "Q", "<cmd>lua NetrwSetQFWithMarked()<cr>")
-function NetrwSetQFWithMarked()
+local function NetrwSetQFWithMarked()
   local marked = vim.fn.eval([[netrw#Expose("netrwmarkfilelist")]])
 
   if marked == "n/a" then
@@ -141,6 +140,7 @@ function NetrwSetQFWithMarked()
 
   vim.fn.setqflist(qf, "r")
 end
+bufmap("n", "Q", NetrwSetQFWithMarked)
 -- Send marked file(s) to buffer list without loading them and edit first one from marked list
 bufmap("n", "B", "<cmd>NetrwKeepj call s:NetrwMarkFileEdit(1)<cr>")
 
