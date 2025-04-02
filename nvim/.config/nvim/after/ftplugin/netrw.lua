@@ -8,7 +8,9 @@ vim.g.netrw_localcopycmdopt = " -R"
 vim.g.netrw_use_errorwindow = 0
 
 local bufmap = function(mode, key, cmd, opts)
-  vim.api.nvim_buf_set_keymap(0, mode, key, cmd, opts or {})
+  opts = opts or {}
+  opts.buffer = 0
+  vim.keymap.set(mode, key, cmd, opts)
 end
 
 -- Better navigation keymaps

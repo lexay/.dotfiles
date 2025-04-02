@@ -1,8 +1,14 @@
+local bufmap = function(mode, key, cmd, opts)
+  opts = opts or {}
+  opts.buffer = 0
+  vim.keymap.set(mode, key, cmd, opts)
+end
+
 -- Disable netrw
-vim.api.nvim_buf_set_keymap(0, "n", "<leader>d", "<nop>", {})
+bufmap("n", "<leader>d", "<nop>")
 
 -- Disable keymaps used for resizing
-vim.api.nvim_buf_set_keymap(0, "n", "=", "<nop>", {})
-vim.api.nvim_buf_set_keymap(0, "n", "-", "<nop>", {})
-vim.api.nvim_buf_set_keymap(0, "n", "_", "<nop>", {})
-vim.api.nvim_buf_set_keymap(0, "n", "+", "<nop>", {})
+bufmap("n", "=", "<nop>")
+bufmap("n", "-", "<nop>")
+bufmap("n", "_", "<nop>")
+bufmap("n", "+", "<nop>")
