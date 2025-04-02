@@ -140,11 +140,6 @@ map("n", "L", "$")
 -- Checkout default keys
 -- Normal:
 -- va %
--- Add/remove directory of current buffer to zoxide list
-map("n", "<leader>za", utils.za)
-map("n", "<leader>zr", utils.zr)
-map("n", "<leader>ze", "<cmd>tabnew term://zoxide edit<cr>")
-
 -- Open quickfix list
 map("n", "<leader>q", "<cmd>copen<cr>")
 -- Clear quickfix list
