@@ -87,7 +87,7 @@ bufmap("n", "H", [[<cmd>NetrwKeepj call s:NetrwBookHistHandler(4, expand("%"))<c
 -- Back to parent directory
 bufmap("n", "h", "<cmd>NetrwKeepj call s:NetrwBrowseUpDir(1)<cr>")
 -- Forward to sub directory / Open file
-bufmap("n", "l", "<cr>")
+bufmap("n", "l", "<cr>", { remap = true })
 -- Hide/show dotfiles files
 bufmap("n", ".", "<cmd>NetrwKeepj call s:NetrwHidden(1)<cr>")
 -- Close netrw and return to the previous buffer
