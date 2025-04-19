@@ -3,6 +3,8 @@ local map = vim.keymap.set
 local utils = require("config.utils")
 
 -- Keymaps
+-- Navigation
+map("n", "<leader>fd", "<cmd>Explore<cr>")
 
 -- Buffers
 -- Close current buffer (keep split open)
