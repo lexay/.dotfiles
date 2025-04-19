@@ -45,6 +45,9 @@ typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[command]="fg=#af87af,bold"
 ZSH_HIGHLIGHT_STYLES[alias]="fg=#af87af,bold"
 ZSH_HIGHLIGHT_STYLES[builtin]="fg=#af87af,bold"
+ZSH_HIGHLIGHT_STYLES[single-quoted-argument]="fg=#5faf5f"
+ZSH_HIGHLIGHT_STYLES[double-quoted-argument]="fg=#5faf5f"
+# ZSH_HIGHLIGHT_STYLES[path]="none"
 # User prompt
 # Light %? and dark green %~
 PROMPT="%(?.%B%F{#87af87}>.%B%F{#d7875f}>)%f%b"
