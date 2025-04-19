@@ -7,9 +7,8 @@ M.branch = "master"
 M.config = function()
   -- Keymaps
   local map = vim.keymap.set
-  map("n", "<leader>l", "<cmd>VimuxRunLastCommand<cr>")
-  map("n", "<leader>o", "<cmd>lua open_runner()<cr>")
-  map("n", "<leader>r", "<cmd>lua run_cur_buf()<cr>")
+  map("n", "<leader>ro", M.open_runner)
+  map("n", "<leader>rr", M.run_cur_buf)
 
   -- Settings
   vim.g["VimuxUseNearest"] = 0
