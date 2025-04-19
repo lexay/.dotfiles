@@ -79,8 +79,9 @@ map("n", "<a-l>", "<cmd>tabnext<cr>", { silent = true })
 map("n", "<leader>T", "<cmd>tabonly<cr>", { silent = true })
 map("n", "<leader>t", "<cmd>tabclose<cr>", { silent = true })
 
--- Netrw
-map("n", "<leader>d", "<cmd>Explore<cr>")
+-- LSP
+map("n", "<leader>lh", "<cmd>lua vim.lsp.buf.hover()<cr>")
+map("n", "<leader>ln", "<cmd>lua vim.lsp.buf.rename()<cr>")
 
 -- Other
 -- Copy/paste from system clipboard
