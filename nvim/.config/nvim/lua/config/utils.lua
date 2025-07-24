@@ -154,7 +154,7 @@ end
 -- Vimux:
 -- Check file type agains runner commands
 function M.vimux_check_cmd()
-  local commands = require("plugins.vimux.filetypes").commands
+  local commands = require("config.vimux_filetypes").commands
 
   return commands[vim.bo.filetype]()
 end
