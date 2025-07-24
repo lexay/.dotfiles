@@ -128,7 +128,7 @@ bufmap(
 )
 -- Set quickfix list with marked files
 local function NetrwSetQFWithMarked()
-  local marked = vim.fn.eval([[netrw#Expose("netrwmarkfilelist")]])
+  local marked = vim.api.nvim_call_function("netrw#Expose", { "netrwmarkfilelist" })
 
   if marked == "n/a" then
     return vim.api.nvim_err_writeln("No files or directories marked!")
