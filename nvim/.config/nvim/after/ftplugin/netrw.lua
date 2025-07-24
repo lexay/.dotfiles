@@ -7,6 +7,8 @@ vim.g.netrw_localcopycmdopt = " -R"
 -- Use `echoerr` for showing errors
 vim.g.netrw_use_errorwindow = 0
 
+-- Keymaps local to Netrw buffer --
+
 local bufmap = function(mode, key, cmd, opts)
   opts = opts or {}
   opts.buffer = 0

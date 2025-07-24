@@ -2,12 +2,48 @@ vim.g.mapleader = " "
 local map = vim.keymap.set
 local utils = require("config.utils")
 
--- Keymaps
--- Navigation
-map("n", "<leader>fd", "<cmd>Explore<cr>")
+-- Keymaps --
 
--- Buffers
--- Close current buffer (keep split open)
+-- Navigation:
+-- Find files
+map("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
+-- Grep in files
+map("n", "<leader>fg", "<cmd>Telescope live_grep<cr>")
+-- Find buffers local to CWD in buffer list
+map("n", "<leader>fb", "<cmd>lua require('telescope.builtin').buffers({only_cwd = true, sort_mru = true})<cr>")
+-- Find buffers in buffer list and CD to the project directory
+map("n", "<leader>fB", "<cmd>Telescope buffers_zoxide<cr>")
+-- Find in :help
+map("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
+-- Find in unix man pages
+map("n", "<leader>fm", "<cmd>Telescope man_pages<cr>")
+-- Find in netrw explorer
+map("n", "<leader>fd", "<cmd>Explore<cr>")
+-- Find in projects
+map("n", "<leader>zi", "<cmd>Telescope zoxide<cr>")
+-- Add to projects
+map("n", "<leader>za", utils.zoxide_add)
+-- Remove from projects
+map("n", "<leader>zr", utils.zoxide_remove)
+-- Edit projects
+map("n", "<leader>ze", "<cmd>tabnew term://zoxide edit<cr><insert>")
+
+-- Versioning:
+-- Git
+map("n", "gs", "<cmd>tabnew<cr><cmd>G<cr><cmd>only<cr>", { silent = true })
+-- Git log
+map("n", "gj", "<cmd>Gclog<cr>", { silent = true })
+-- Git add current file
+map("n", "gA", "<cmd>Git add %<cr>", { silent = true })
+
+-- Running files:
+-- Open vimux runner
+map("n", "<leader>ro", utils.vimux_open_runner)
+-- Run current file
+map("n", "<leader>rr", utils.vimux_run_cur_buf)
+
+-- Buffers:
+-- Close current buffer (but keep split open if it exists)
 map("n", "<leader>b", utils.backdelete, { silent = true })
 -- Close all buffers but current
 map("n", "<leader>B", utils.buff_only, { silent = true })
@@ -18,13 +54,13 @@ map("n", "<a-k>", utils.cycle_prev_local_buffer)
 map("n", "<a-n>", "<cmd>silent! cnext<cr>")
 map("n", "<a-p>", "<cmd>silent! cprevious<cr>")
 
--- Moving
+-- Moving:
 -- Move in normal mode
 -- Half window up/down with cursor staying in the middle
 map("n", "<c-d>", "<c-d>zz")
 map("n", "<c-u>", "<c-u>zz")
 
--- Searching
+-- Searching:
 -- Match is always in the middle
 map("n", "n", "nzz")
 map("n", "N", "Nzz")
@@ -33,17 +69,11 @@ map("n", "#", "#zz")
 map("n", "g*", "g*zz")
 map("n", "g#", "g#zz")
 
--- Substitute in
--- Normal
-map("n", "gR", "q:%s///gc<left><left><left><left>")
--- Visual
-map("v", "gR", "q:s///gc<left><left><left><left>")
-
--- Highlighting
+-- Highlighting:
 -- Highlight last inserted text
 map("n", "gV", "`[v`]")
 
--- Windows
+-- Windows:
 -- Open new tab
 map("n", "<leader>n", "<cmd>tabnew<cr>")
 -- Open vertical split
@@ -71,7 +101,7 @@ map("n", "<leader>w", "<cmd>close<cr>")
 -- Close all windows except current
 map("n", "<leader>W", "<cmd>only<cr>")
 
--- Tabs
+-- Tabs:
 -- Move between tabs opened recently
 map("n", "<leader><leader>", "<c-tab>")
 -- Switch tabs
@@ -81,11 +111,20 @@ map("n", "<a-l>", "<cmd>tabnext<cr>", { silent = true })
 map("n", "<leader>T", "<cmd>tabonly<cr>", { silent = true })
 map("n", "<leader>t", "<cmd>tabclose<cr>", { silent = true })
 
--- LSP
+-- Refactoring:
+-- Navigation
+map("n", "<leader>ld", "<cmd>Telescope lsp_definitions<cr>")
+map("n", "<leader>lr", "<cmd>Telescope lsp_references<cr>")
 map("n", "<leader>lh", "<cmd>lua vim.lsp.buf.hover()<cr>")
-map("n", "<leader>ln", "<cmd>lua vim.lsp.buf.rename()<cr>")
+-- Renaming
+-- Normal
+map("n", "gn", "q:%s///gc<left><left><left><left>")
+-- Visual
+map("v", "gn", "q:s///gc<left><left><left><left>")
+-- Quickfix
+map("n", "gN", "q:cdo %s///gc<left><left><left><left>")
 
--- Other
+-- Other:
 -- Copy/paste from system clipboard
 map("", "<leader>y", [["+y]])
 map("", "<leader>p", [["+p]])
@@ -140,10 +179,13 @@ map("n", "<leader>R", "<plug>NetrwRefresh")
 -- Go to the start/end of the text
 map("n", "H", "^")
 map("n", "L", "$")
--- Checkout default keys
--- Normal:
--- va %
 -- Open quickfix list
 map("n", "<leader>q", "<cmd>copen<cr>")
 -- Clear quickfix list
 map("n", "<leader>c", utils.clear_qf)
+
+-- Disable Ctr-Backslash
+vim.keymap.set("n", "<c-bslash>", "<nop>")
+-- Experimenting:
+-- Discover previously not known default keys / combinations
+-- Normal va %

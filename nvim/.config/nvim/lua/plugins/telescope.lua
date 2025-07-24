@@ -57,18 +57,6 @@ M.config = function()
       },
     },
   })
-
-  -- Navigation
-  local map = vim.keymap.set
-  map("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
-  map("n", "<leader>fg", "<cmd>Telescope live_grep<cr>")
-  map("n", "<leader>fb", "<cmd>lua require('telescope.builtin').buffers({only_cwd = true, sort_mru = true})<cr>")
-  map("n", "<leader>fB", "<cmd>lua require('telescope.builtin').buffers()<cr>")
-  map("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
-  map("n", "<leader>fm", "<cmd>Telescope man_pages<cr>")
-  -- LSP
-  map("n", "<leader>ld", "<cmd>Telescope lsp_definitions<cr>")
-  map("n", "<leader>lr", "<cmd>Telescope lsp_references<cr>")
 end
 
 M.dependencies = { "nvim-lua/plenary.nvim" }

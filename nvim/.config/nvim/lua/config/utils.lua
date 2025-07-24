@@ -137,4 +137,36 @@ function M.clear_qf()
   vim.fn.setqflist({}, "r")
 end
 
+-- Add to zoxide list
+function M.zoxide_add()
+  local cur_buf_dir = vim.fn.expand("%:p:h")
+  vim.cmd([[silent! !zoxide add ]] .. cur_buf_dir)
+  print(cur_buf_dir .. " added to zoxide!")
+end
+
+-- Remove from zoxide list
+function M.zoxide_remove()
+  local cur_buf_dir = vim.fn.expand("%:p:h")
+  vim.cmd([[silent! !zoxide remove ]] .. cur_buf_dir)
+  print(cur_buf_dir .. " removed from zoxide!")
+end
+
+-- Vimux:
+-- Check file type agains runner commands
+function M.vimux_check_cmd()
+  local commands = require("plugins.vimux.filetypes").commands
+
+  return commands[vim.bo.filetype]()
+end
+
+function M.vimux_run_cur_buf(cmd)
+  cmd = cmd or M.vimux_check_cmd()
+  local bufname = vim.api.nvim_buf_get_name(0)
+  vim.fn.VimuxRunCommand(string.format("clear; %s %s", cmd, bufname))
+end
+
+function M.vimux_open_runner()
+  vim.cmd("VimuxOpenRunner")
+  vim.cmd([[call feedkeys("\<C-j>")]])
+end
 return M
