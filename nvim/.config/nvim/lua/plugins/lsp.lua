@@ -68,6 +68,10 @@ M.config = function()
     },
   })
 
+  cmp.setup.filetype("TelescopePrompt", {
+    enabled = false,
+  })
+
   -- LuaSnip
   -- Lazy load when using LuaSnip
   -- https://github.com/rafamadriz/friendly-snippets#with-lazynvim
