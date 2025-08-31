@@ -124,7 +124,19 @@ function M.clear_qf()
   vim.fn.setqflist({}, "r")
 end
 
+-- Open buffer under cursor even if it doesnt exist
+function M.gf()
+  local filename = vim.fn.expand("<cfile>")
+  if filename == "" then
+    print("No file under the cursor!")
+  end
 
+  if not filename:match("^/") then
+    local buf_dir = vim.fn.expand("%:p:h")
+    filename = buf_dir .. "/" .. filename
+  end
 
+  filename = vim.fn.fnamemodify(filename, ":p")
+  vim.cmd("edit" .. " " .. vim.fn.fnameescape(filename))
 end
 return M

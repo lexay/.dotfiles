@@ -191,3 +191,5 @@ vim.keymap.set("n", "<c-bslash>", "<nop>")
 -- Experimenting:
 -- Discover previously not known default keys / combinations
 -- Normal va %
+-- Goto or create buffer
+vim.keymap.set("n", "gf", utils.gf)
