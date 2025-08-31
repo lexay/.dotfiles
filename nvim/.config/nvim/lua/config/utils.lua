@@ -97,11 +97,11 @@ function M.cycle_prev_local_buf()
   end
 end
 
--- Delete current buffer and go back to previous one
-function M.backdelete()
+-- Unlist current buffer and go back to previous one
+function M.backunlist()
   local current_bufnr = vim.api.nvim_get_current_buf()
   M.cycle_prev_local_buf()
-  vim.cmd("bdelete " .. current_bufnr)
+  vim.api.nvim_set_option_value("buflisted", false, { buf = current_bufnr })
 end
 
 -- Resize current window to max size and back

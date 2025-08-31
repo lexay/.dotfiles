@@ -46,7 +46,7 @@ map("n", "<leader>rr", vimux.run_cur_buf)
 
 -- Buffers:
 -- Close current buffer (but keep split open if it exists)
-map("n", "<leader>b", utils.backdelete, { silent = true })
+map("n", "<leader>b", utils.backunlist, { silent = true })
 -- Close all buffers but current
 map("n", "<leader>B", utils.buff_only, { silent = true })
 -- Switch to previous/next local buffer
