@@ -81,7 +81,7 @@ map("n", "<leader>n", "<cmd>tabnew<cr>")
 -- Open vertical split
 map("n", "<leader>v", "<cmd>vsplit<cr>")
 -- Open horizontal split
-map("n", "<leader>x", "<cmd>split<cr>")
+map("n", "<leader>s", "<cmd>split<cr>")
 -- Scale window size to max width / height / both / to normal
 map("n", "<leader>)", "<cmd>vertical resize<cr>")
 map("n", "<leader>_", "<cmd>resize<cr>")
@@ -132,7 +132,6 @@ map("", "<leader>y", [["+y]])
 map("", "<leader>p", [["+p]])
 map("", "<leader>P", [["+P]])
 -- Close windows faster
-map("n", "<leader>s", "<cmd>update<cr>")
 map("n", "<leader>S", "<cmd>xit<cr>")
 map("n", "<leader>Q", "<cmd>quitall<cr>")
 -- Yank to EOL
