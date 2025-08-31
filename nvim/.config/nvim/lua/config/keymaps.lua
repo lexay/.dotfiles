@@ -171,10 +171,6 @@ map("n", "<leader>k", "<cmd>Inspect<cr>")
 -- Ruby docs
 map("n", "<leader>frbh", utils.show_ri)
 map("n", "<leader>frbg", utils.find_ri)
--- Use cmd/search window instead
-map("n", ":", "q:")
-map("n", "/", "q/")
-map("n", "?", "q?")
 -- Dont block vim_tmux_navigator's <c-l> with NetrwRefresh
 map("n", "<leader>R", "<plug>NetrwRefresh")
 -- Go to the start/end of the text
