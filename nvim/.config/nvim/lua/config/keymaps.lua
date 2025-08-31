@@ -1,6 +1,8 @@
 vim.g.mapleader = " "
 local map = vim.keymap.set
 local utils = require("config.utils")
+local zoxide = require("plugins.telescope_zoxide")
+local vimux = require("plugins.vimux")
 
 -- Keymaps --
 
@@ -22,9 +24,9 @@ map("n", "<leader>fd", "<cmd>Explore<cr>")
 -- Find in projects
 map("n", "<leader>zi", "<cmd>Telescope zoxide<cr>")
 -- Add to projects
-map("n", "<leader>za", utils.zoxide_add)
+map("n", "<leader>za", zoxide.add)
 -- Remove from projects
-map("n", "<leader>zr", utils.zoxide_remove)
+map("n", "<leader>zr", zoxide.remove)
 -- Edit projects
 map("n", "<leader>ze", "<cmd>tabnew term://zoxide edit<cr><insert>")
 
@@ -38,9 +40,9 @@ map("n", "gA", "<cmd>Git add %<cr>", { silent = true })
 
 -- Running files:
 -- Open vimux runner
-map("n", "<leader>ro", utils.vimux_open_runner)
+map("n", "<leader>ro", vimux.open_runner)
 -- Run current file
-map("n", "<leader>rr", utils.vimux_run_cur_buf)
+map("n", "<leader>rr", vimux.run_cur_buf)
 
 -- Buffers:
 -- Close current buffer (but keep split open if it exists)
