@@ -49,3 +49,17 @@ vim.api.nvim_create_autocmd("BufNew", {
   end
 ]],
 })
+
+-- Highlight all matches while searching
+vim.api.nvim_create_autocmd({ "CmdlineEnter" }, {
+  pattern = "[/?]",
+  callback = function()
+    vim.opt.hlsearch = true
+  end,
+})
+vim.api.nvim_create_autocmd({ "CmdlineLeave" }, {
+  pattern = "[/?]",
+  callback = function()
+    vim.opt.hlsearch = false
+  end,
+})
