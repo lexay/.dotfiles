@@ -81,8 +81,6 @@ bufmap("n", "R", "<nop>")
 bufmap("n", "F", "<cmd>NetrwKeepj call s:NetrwOpenFile(1)<cr>")
 -- Make directory
 bufmap("n", "D", [[<cmd>NetrwKeepj call s:NetrwMakeDir("")<cr>]])
--- Remove file(s) /directory(ies) recursivelly
-bufmap("n", "R", [[<cmd>NetrwKeepj call s:NetrwLocalRm(b:netrw_curdir)<cr>]])
 -- Move
 -- Back to previous directory
 bufmap("n", "H", [[<cmd>NetrwKeepj call s:NetrwBookHistHandler(4, expand("%"))<cr>]])
@@ -151,3 +149,18 @@ bufmap("n", "N", "<cmd>NetrwKeepj call s:NetrwLocalRename(b:netrw_curdir)<cr>")
 
 -- Highlight marked files
 vim.cmd([[hi! link netrwMarkFile Search]])
+
+local function NetrwRemove()
+  local filename = vim.fn.expand("<cWORD>")
+  vim.cmd([[NetrwKeepj call s:NetrwLocalRm(b:netrw_curdir)]])
+  local buffers = vim.api.nvim_list_bufs()
+  for _, bufnr in ipairs(buffers) do
+    local bufname = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(bufnr), ":t")
+    if filename == bufname then
+      vim.api.nvim_set_option_value("buflisted", false, { buf = bufnr })
+      return
+    end
+  end
+end
+-- Remove file(s) /directory(ies) recursivelly
+bufmap("n", "R", NetrwRemove)
