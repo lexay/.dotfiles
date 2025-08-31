@@ -22,36 +22,27 @@ end
 
 -- Close other buffers except current one
 function M.buff_only()
-  local all_buffs = vim.api.nvim_list_bufs()
-  local current_buff = vim.api.nvim_get_current_buf()
-  local buffs_listed = {}
+  local bufs = vim.fn.getbufinfo({ buflisted = true, bufloaded = true })
+  local cur_bufnr = vim.api.nvim_get_current_buf()
 
-  for _, i in ipairs(all_buffs) do
-    if vim.api.nvim_buf_is_loaded(i) and vim.api.nvim_get_option_value("buflisted", { buf = i }) then
-      table.insert(buffs_listed, i)
-    end
-  end
-
-  local buffs_listed_count = table.getn(buffs_listed)
-
-  if buffs_listed_count == 1 then
-    print("Already only buffer")
+  if #bufs == 1 then
+    print("Already only buffer!")
     return
   end
 
-  for _, i in ipairs(buffs_listed) do
-    if i ~= current_buff then
-      vim.api.nvim_buf_delete(i, {})
+  for _, buf in ipairs(bufs) do
+    if buf.bufnr ~= cur_bufnr then
+      vim.api.nvim_buf_delete(buf.bufnr, {})
     end
   end
 
   -- Account for current buffer
-  local buffs_deleted_count = buffs_listed_count - 1
-  print(buffs_deleted_count, (buffs_deleted_count == 1) and "buffer" or "buffers", "deleted")
+  local bufs_del_count = #bufs - 1
+  print(bufs_del_count, (bufs_del_count == 1) and "buffer" or "buffers", "deleted")
 end
 
 -- Check if buffer's path is local to CWD
-local function is_buffer_local_to_cwd(bufnr, cwd)
+function M.is_buf_local_to_cwd(bufnr, cwd)
   local bufname = vim.api.nvim_buf_get_name(bufnr)
 
   local separator = cwd:match("[\\/]")
@@ -64,32 +55,28 @@ local function is_buffer_local_to_cwd(bufnr, cwd)
 end
 
 -- Get all buffers local to CWD
-local function get_local_buffers()
+function M.get_local_bufs()
   local cwd = vim.fn.getcwd()
-  local all_buffers = vim.api.nvim_list_bufs()
-  local local_buffers = {}
+  local bufs = vim.fn.getbufinfo({ buflisted = true })
+  local local_bufs = {}
 
-  for _, bufnr in ipairs(all_buffers) do
-    if
-      vim.api.nvim_get_option_value("buflisted", { buf = bufnr })
-      and vim.api.nvim_buf_get_name(bufnr) ~= ""
-      and is_buffer_local_to_cwd(bufnr, cwd)
-    then
-      table.insert(local_buffers, bufnr)
+  for _, buf in ipairs(bufs) do
+    if buf.name ~= "" and M.is_buf_local_to_cwd(buf.bufnr, cwd) then
+      table.insert(local_bufs, buf.bufnr)
     end
   end
 
-  return local_buffers
+  return local_bufs
 end
 
 -- Switch to next local buffer
-function M.cycle_next_local_buffer()
-  local local_buffers = get_local_buffers()
+function M.cycle_next_local_buf()
+  local local_bufs = M.get_local_bufs()
   local current_bufnr = vim.api.nvim_get_current_buf()
 
-  for i, bufnr in ipairs(local_buffers) do
+  for i, bufnr in ipairs(local_bufs) do
     if bufnr == current_bufnr then
-      local next_bufnr = local_buffers[(i % #local_buffers) + 1]
+      local next_bufnr = local_bufs[(i % #local_bufs) + 1]
       vim.api.nvim_set_current_buf(next_bufnr)
       return
     end
@@ -97,13 +84,13 @@ function M.cycle_next_local_buffer()
 end
 
 -- Switch to previous local buffer
-function M.cycle_prev_local_buffer()
-  local local_buffers = get_local_buffers()
+function M.cycle_prev_local_buf()
+  local local_bufs = M.get_local_bufs()
   local current_bufnr = vim.api.nvim_get_current_buf()
 
-  for i, bufnr in ipairs(local_buffers) do
+  for i, bufnr in ipairs(local_bufs) do
     if bufnr == current_bufnr then
-      local prev_bufnr = local_buffers[(i - 2 + #local_buffers) % #local_buffers + 1]
+      local prev_bufnr = local_bufs[(i - 2 + #local_bufs) % #local_bufs + 1]
       vim.api.nvim_set_current_buf(prev_bufnr)
       return
     end
@@ -113,7 +100,7 @@ end
 -- Delete current buffer and go back to previous one
 function M.backdelete()
   local current_bufnr = vim.api.nvim_get_current_buf()
-  M.cycle_prev_local_buffer()
+  M.cycle_prev_local_buf()
   vim.cmd("bdelete " .. current_bufnr)
 end
 

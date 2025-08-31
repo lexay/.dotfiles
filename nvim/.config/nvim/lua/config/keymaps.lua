@@ -50,8 +50,8 @@ map("n", "<leader>b", utils.backdelete, { silent = true })
 -- Close all buffers but current
 map("n", "<leader>B", utils.buff_only, { silent = true })
 -- Switch to previous/next local buffer
-map("n", "<a-j>", utils.cycle_next_local_buffer)
-map("n", "<a-k>", utils.cycle_prev_local_buffer)
+map("n", "<a-j>", utils.cycle_next_local_buf)
+map("n", "<a-k>", utils.cycle_prev_local_buf)
 -- Switch to previous/next quickfix entry
 map("n", "<a-n>", "<cmd>silent! cnext<cr>")
 map("n", "<a-p>", "<cmd>silent! cprevious<cr>")
