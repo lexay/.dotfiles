@@ -90,8 +90,6 @@ bufmap("n", "h", "<cmd>NetrwKeepj call s:NetrwBrowseUpDir(1)<cr>")
 bufmap("n", "l", "<cr>", { remap = true })
 -- Hide/show dotfiles files
 bufmap("n", ".", "<cmd>NetrwKeepj call s:NetrwHidden(1)<cr>")
--- Close netrw and return to the previous buffer
-bufmap("n", "<escape>", "<cmd>Rexplore<cr>")
 -- Open file in new split
 bufmap("n", "<C-x>", "<cmd>NetrwKeepj call s:NetrwSplit(3)<cr>")
 -- Open file in new tab
@@ -164,3 +162,32 @@ local function NetrwRemove()
 end
 -- Remove file(s) /directory(ies) recursivelly
 bufmap("n", "R", NetrwRemove)
+
+-- Netrw go back to previous buffer
+local function NetrwGoToPreviousBuffer()
+  local buffers = vim.fn.getbufinfo({ buflisted = true })
+
+  if #buffers == 0 then
+    return
+  end
+
+  table.sort(buffers, function(a, b)
+    return a.lastused > b.lastused
+  end)
+
+  local local_buffers = {}
+  local cwd = vim.fn.getcwd()
+
+  for _, buf in ipairs(buffers) do
+    if require("config.utils").is_buffer_local_to_cwd(buf.bufnr, cwd) then
+      table.insert(local_buffers, buf.bufnr)
+    end
+  end
+
+  if #local_buffers == 0 then
+    return
+  end
+  vim.cmd("buffer" .. " " .. local_buffers[1])
+end
+-- Close netrw and return to the previous buffer
+bufmap("n", "<escape>", NetrwGoToPreviousBuffer)
